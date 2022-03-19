@@ -1,0 +1,86 @@
+ul.inform-stat {
+	list-style: none;
+	li {
+		display: inline;
+	    padding-right: 33px;
+	    font-size: 16px;
+	}
+}
+
+div.user-bio p.name {
+	font-weight: 800	
+}
+
+ul.inform-stat li {
+	display: inline;
+    padding-right: 33px;
+    font-size: 16px;
+}
+
+.image-av {
+	height: 160px;
+	display: flex;
+  justify-content: flex-end;
+}
+
+.avatar-im {
+	width: 200px;
+  height: 200px;
+	border-radius: 70%;
+}
+
+button.edit-but-profile {
+	height: 38px;
+	width: 280px;
+	font-size: 20px
+}
+
+h2.username-bio {
+	font-size: 15px;
+}
+
+div.user-bio {
+	font-size: 15px;
+}
+
+.user-tab {
+  border-top: solid 2px black;
+  display: flex;
+  justify-content: center;
+}
+
+a.tab{
+  	height: 35px;
+  	margin-right: 50px;
+  	line-height: 45px;
+  	color: #999;
+  	font-size: 12px;
+  	font-weight: 500;
+  	text-align: center;
+}
+
+a.active{
+  border-top: 1px solid #262626;
+  color: #262626;
+}
+
+a.text-edit {
+	text-align: center
+}
+
+.user-images {
+ 	display: flex;
+ 	flex-wrap: wrap;
+ 	justify-content: space-between;
+ 	margin: 0 20px;
+}
+
+.wrapper {
+ 	width: 280px;
+ 	height: 280px;
+ 	margin: 15px;
+ 	img{
+ 	width: 100%;
+ 	border-radius: 4%;
+ 	}
+}

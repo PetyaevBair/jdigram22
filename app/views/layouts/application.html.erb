@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JDIGram</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+    <nav class="navbar bg-light d-flex">
+      <div class="container">
+        <div class="logo">
+          <a href="<%= root_path %>" class="logo-inst text-decoration-none text-reset">JDIGram</a>
+          <a><i class="fa fa-instagram"></i></a>
+        </div>
+        <div class="user-section">
+          <a><i class="fa fa-compass"></i></a>
+          <a><i class="fa fa-heart"></i></a>
+          <% if user_signed_in? %>
+            <a><%= link_to current_user.username, user_path(current_user) %></a>
+            <a><%= link_to "Выйти", destroy_user_session_path, method: :delete %></a>
+          <% else %>
+              <a href="<%= new_user_session_path%>">Войти
+              </a>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container" style="min-height: 500px;">
+      <%= yield %>
+    </main>
+
+
+    <footer class="container footer">
+      <nav class="navbar d-flex">
+        <ul>
+          <li>О нас</li>
+          <li>Условия пользования</li>
+          <li>Техподдержка</li>
+        </ul>
+        <p> 2022 JDIGram </p>
+      </nav>
+    </footer>
+
+  </body>
+</html>

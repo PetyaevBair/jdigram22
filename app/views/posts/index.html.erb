@@ -1,0 +1,14 @@
+<div>
+	<% @posts.each do |post| %>
+		<div class="image-post">
+			<%= image_tag post.image %>
+		</div>
+		<div>
+			<% if user_signed_in? %>
+				<%= link_to "Оценить", like_path("Post", post.id), method: :post, remote: true %>
+			<% end %>
+			<p class="text-post"><%= post.description %></p>
+		</div>
+		<a><%= link_to "Посмотреть пост", post_path(post) %><a>
+	<% end %>
+</div>

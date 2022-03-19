@@ -1,0 +1,27 @@
+<div class="user-profile">
+  <div class="row">
+    <div class="col-8">
+      <div>
+        <% if @post.image.blank? %>
+          <p> Фото нет </p>
+        <% else %>
+          <%= image_tag @post.image%>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="col-4">
+        <p><%= @post.description %></p>
+        <p>Комментарии:</p>
+        <ul><% @post.comments.each do |comment| %>
+            <li><%= comment.text %> <button>Поменять комментарий</button></li>
+          remote: true
+          <% end %>
+        </ul>
+    </div>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+  <%= render "comments/new" %>
+<% end %>
