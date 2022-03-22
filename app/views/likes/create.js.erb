@@ -1,0 +1,10 @@
+
+
+
+$('#<%= @post.id %>').css('color',function() {
+  <% if @likes.present? %> 
+    return 'red'; 
+  <% else %>
+    return 'black';  
+  <% end %>
+});
