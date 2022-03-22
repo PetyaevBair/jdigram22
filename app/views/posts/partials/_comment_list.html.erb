@@ -1,0 +1,8 @@
+<div id="comment_box">
+  <% post.comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <p id="comment_<%= comment.id %>"><%= comment.text %><button>Изменить</button>
+      <%= link_to "Удалить", post_comment_path(post_id: post.id, id: comment.id), method: :delete, remote: true %></p> 
+    <% end %>
+  <% end %>
+</div>

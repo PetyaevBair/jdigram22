@@ -1,0 +1,1 @@
+<p id="comment_<%= comment.id %>"><%= comment.text %> <button>Изменить</button><%= link_to "Удалить", post_comment_path(post.id, comment.id), method: :delete, remote: true %></p>

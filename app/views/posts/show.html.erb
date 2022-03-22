@@ -7,21 +7,16 @@
         <% else %>
           <%= image_tag @post.image%>
         <% end %>
+        <% if user_signed_in? %>
+          <%= render "comments/new", losals: {post: @post} %>
+        <% end %>
       </div>
     </div>
     
     <div class="col-4">
-        <p><%= @post.description %></p>
-        <p>Комментарии:</p>
-        <ul><% @post.comments.each do |comment| %>
-            <li><%= comment.text %> <button>Поменять комментарий</button></li>
-          remote: true
-          <% end %>
-        </ul>
+      <%= @post.description %>
+      <%= render partial: '/posts/partials/comment_grid', locals: { post: @post } %>
     </div>
+
   </div>
 </div>
-
-<% if user_signed_in? %>
-  <%= render "comments/new" %>
-<% end %>

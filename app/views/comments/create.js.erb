@@ -1,0 +1,3 @@
+///$("#comments_grid").html("<%= escape_javascript(render partial: '/posts/partials/comment_list', locals: { post: @post } ) %>");
+$("#comment_box").append('<%= render partial: "/posts/partials/last_comment", locals: { post: @post, comment: @comment }%>');
+$("#comment_text").val('');
