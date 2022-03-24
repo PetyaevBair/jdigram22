@@ -1,10 +1,14 @@
-<%= form_for @comment, url: post_comment_path(@post, @comment) do |form| %>
+<div id="edit_comment_<%= @comment.id %>">
+	<%= form_with model: @comment, url: post_comment_path(@post, @comment), method: :patch, remote: true do |form| %>
+		<div>
+			<p><%= form.label :text, "Содержимое:" %></p>
+			<p><%= form.text_field :text %></p>
+		</div>
+		<div>
+			<p><%= form.submit "Изменить комментарий" %></p>
+		</div>
+	<% end %>
 	<div>
-		<p><%= form.label :text, "Содержимое:" %></p>
-		<p><%= form.text_field :text %></p>
+		<%= link_to "Отменить", post_comment_path(@post, @comment) %>
 	</div>
-	<div>
-		<p><%= form.submit "Изменить комментарий" %></p>
-	</div>
-
-<% end %>
+</div>

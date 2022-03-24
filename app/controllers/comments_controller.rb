@@ -1,4 +1,10 @@
 class CommentsController < ApplicationController
+  
+  def show
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+  end
+
   def create
     @post = Post.find(params[:post_id])
   	@comment = @post.comments.new(comment_params)
@@ -6,15 +12,21 @@ class CommentsController < ApplicationController
     @comment.save
   end
 
-  def update
+  def edit
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[id])
+    @comment = @post.comments.find(params[:id])
   end
 
   def destroy
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.destroy
+  end
+
+  def update
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    @comment.update(comment_params)
   end
 
   private
