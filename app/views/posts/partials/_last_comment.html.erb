@@ -1,5 +1,9 @@
 <div id="comment_<%= comment.id %>">
 	<%= comment.text %> 
-	<%=link_to "Изменить", edit_post_comment_path(post_id: post.id, id: comment.id), remote: true %> 
-	<%= link_to "Удалить", post_comment_path(post.id, comment.id), method: :delete, remote: true %>
+	<% if user_signed_in? %>
+		<% if current_user == comment.user %>
+			<%=link_to "Изменить", edit_post_comment_path(post_id: post.id, id: comment.id), remote: true %> 
+			<%= link_to "Удалить", post_comment_path(post.id, comment.id), method: :delete, remote: true %>
+		<% end %>
+	<% end %>
 </div>
