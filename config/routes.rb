@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'posts#index'
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    resources :friendships
+  end
   resources :posts, only: [:index, :show, :new, :create] do
     resources :comments
   end
