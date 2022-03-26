@@ -16,12 +16,11 @@
         <% if user_signed_in? and @user == current_user%>
           <a class="text-edit"><button class="edit-but-profile"><a class="text-edit" href="<%= edit_user_path(@user) %>">Редактировать профиль</button></a>
         <% end %>
-        <%= link_to "Посмотреть друзей", user_friendships_path(user_id: @user) %> 
+        <button><%= link_to "Посмотреть друзей", user_friendships_path(user_id: @user) %></button>
       </div>
       <ul class="inform-stat">
         <li>Публикаций: <span><%= @user.posts.count %></span></li>
-        <li>Подписчиков:<span><%= @user.friendships.count %></span></li>
-        <li>Подписок: <span><%= @user.friendships.count %></span></li>
+        <li>Подписчиков:<span><%= @user.friends.count %></span></li>
       </ul>
       <div class=user-bio>
         <% if @user.name.blank? %>

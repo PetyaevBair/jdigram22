@@ -1,0 +1,48 @@
+<div class="post" id="post_<%= post.id %>">	
+	<div class="user">
+		<% if post.user.image.blank? %>
+		<% else %>
+			<div class="avatar">
+				<%= image_tag post.user.image, class: "user-image" %>
+    		</div>
+    	<% end %>
+		<div class="username">
+			<%= link_to post.user.username, user_path(post.user), class: "nickname" %>
+		</div>
+	</div>
+	<%= image_tag post.image, class: "post-image" %>
+	<div class="likes">
+		<% if user_signed_in? %>
+			<% like = current_user.likes.find_by(likeable_type: "Post", likeable_id: post.id) %>
+			<% if like.present? %>
+				<a class="like", href="<%= like_path(likeable_type: "Post", likeable_id: post.id) %>" data-method="post", data-remote="true">
+					<i class="fa fa-heart like_on", id="<%=post.id%>"></i>
+				</a>
+			<% else %>
+				<a class="like", href="<%= like_path(likeable_type: "Post", likeable_id: post.id) %>" data-method="post", data-remote="true">
+					<i class="fa fa-heart like_off", id="<%=post.id%>"></i>
+				</a>
+			<% end %>
+		<% else %>
+			<a class="like">
+				<i class="fa fa-heart like_off"></i>
+			</a>
+		<% end %>
+		<%= post.likes.count %>
+	</div>
+	<div class="description">
+    	<%= post.description %>
+  	</div>
+  	<div class="comments-form">
+  		<% if user_signed_in? %>
+        	<%= render partial: "comments/new", locals: {post: post, comment: post.comments.new} %>
+        <% end %>
+  	</div>
+  	<div class="comments" id="comment_box_<%= post.id %>">
+  		<% post.comments.each do |comment| %>
+    		<% if comment.id.present? %>
+      			<%= render partial: "/posts/partials/last_comment", locals: { post: post, comment: comment }%>
+    		<% end %>
+  		<% end %>
+  	</div>
+</div>
