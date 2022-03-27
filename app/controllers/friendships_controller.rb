@@ -2,20 +2,23 @@ class FriendshipsController < ApplicationController
 
 	def index
 		@user = User.find(params[:user_id])
-		@friendships = @user.friends.all
-		@friends = []
-		@friendships.each do |friendship|
-			if friendship.friends.find(@user.id).present?
-				@friends.append(friendship)
+		@friends = @user.friends
+		@friends_all = []
+		@friends.each do |friend|
+			if Friendship.find_by(friend_id: @user.id, user_id: friend.id).present?
+				@friends_all.append(friend)
 			end
 		end
-
 	end
 
 	def create
-	    @friendship = current_user.friendships.create(friend_id: params[:id])
+	    @friendships = current_user.friendships.where(friend_id: params[:id])
+	    if @friendships.present?
+	    	@friendships.destroy_all
+	    else
+			@friendships = @current_user.friendships.create(friend_id: params[:id])
+		end
   	end
-
 
   	private
 
