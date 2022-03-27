@@ -1,44 +1,51 @@
 <div class="user-profile">
   <div class="row">
     <div class="col-4">
-      <div class="image-av">
+      <div class="image-avatar">
         <% if @user.image.blank? %>
           <p> Фото нет </p>
         <% else %>
-          <%= image_tag @user.image, class: "avatar-im" %>
+          <%= image_tag @user.image, class: "avatar-image" %>
         <% end %>
       </div>
     </div>
     
-    <div class="col-8">
+    <div class="col-8 info">
       <div class="profile">
-        <h2 class="username"><%= @user.username %></h2>
+        <p class="username"><%= @user.username %></p>
         <% if user_signed_in? and @user == current_user%>
-          <a class="text-edit"><button class="edit-but-profile"><a class="text-edit" href="<%= edit_user_path(@user) %>">Редактировать профиль</button></a>
+          <button class="button-edit"><%= link_to "Редактировать профиль", edit_user_path(@user), class: "edit-profile" %></button>
+          <button class="create-post-button"><%= link_to "Создать пост", new_post_path, class: "create-post" %></button>
         <% end %>
-        <button><%= link_to "Посмотреть друзей", user_friendships_path(user_id: @user) %></button>
+        <button class="show-button-friends" ><%= link_to "Посмотреть друзей", user_friendships_path(user_id: @user), class: "show-friends" %></button>
+        <% if user_signed_in? and current_user != @user %>
+          <button class="add-friend-button"><%= link_to "Добавить в друзья", user_friendships_path( user_id: current_user, id: @user), method: :post, class: "add-friend" %></button>
+        <% end %>
       </div>
-      <ul class="inform-stat">
-        <li>Публикаций: <span><%= @user.posts.count %></span></li>
-        <li>Подписчиков: <span><%= Friendship.where(friend_id: @user.id).count %></span></li>
-        <li>Подписок: <span><%= Friendship.where(user_id: @user.id).count %></span></li>
+      <ul class="data-user">
+        <li>Публикаций: <%= @user.posts.count %></li>
+        <li>Подписчиков: <%= Friendship.where(friend_id: @user.id).count %></li>
+        <li>Подписок: <%= Friendship.where(user_id: @user.id).count %></li>
       </ul>
       <div class=user-bio>
-        <% if @user.name.blank? %>
-          <p class="name"><%= current_user.name %></p>
+        <% if @user.name.present? %>
+          <p class="name"><%= @user.name %></p>
         <% else %>
           <p>Нет имени</p>
         <% end %>
-        <p>JDIGram</p>
+        <p class="site">JDIGram</p>
       </div>
     </div>
   </div>
 </div>
 
-<% if user_signed_in? and @user == current_user %>
-  <a class="text-edit"><button class="edit-but-profile"><a class="text-edit" href="<%= new_post_path %>">Создать пост</button></a>
-<% end %>
 
-<% if user_signed_in? and current_user != @user %>
-   <%= link_to "Добавить в друзья", user_friendships_path( user_id: current_user, id: @user), method: :post %>
-<% end %>
+<div class="user-border">
+  <div class="user-post-images row">
+    <% @user.posts.each do |post|%>
+      <div class="post-image col-4">
+        <%=image_tag post.image, class: "image" %>
+      </div>
+    <% end %>
+  </div>
+</div>

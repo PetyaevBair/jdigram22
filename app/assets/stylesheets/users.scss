@@ -1,86 +1,212 @@
-ul.inform-stat {
-	list-style: none;
-	li {
-		display: inline;
-	    padding-right: 33px;
-	    font-size: 16px;
+.user-action {
+	display: flex;
+	.create-post-button {
+		height: 50px;
+  	background-color: transparent;
+	  border-radius: 5px;
+	  border: 1px solid #D3D3D3;
+	  color: #262626;
+	  font-size: 15px;
+	  padding: 4px 10px;
+	  font-weight: 500;
+	  margin: 0 5px;
+	  .create-post {
+	  	margin-left: 5px 10px;
+    	color: black;
+    	text-decoration: none;
+	  }
 	}
 }
 
-div.user-bio p.name {
-	font-weight: 800	
+.user-profile {
+	.image-avatar {
+		width: 200px;
+    height: 200px;
+    margin: 40px auto;
+    
+    .avatar-image {
+    	width: 100%;
+    	height: 100%;
+    	border-radius: 50%;
+    }
+	}
+
+	.info {
+		padding: 40px 0;
+
+		.profile {
+			display: flex;
+		}
+		.username {
+			font-size: 30px;
+    	line-height: 40px;
+    	font-weight: 400;
+    	margin-right: 5px;
+		}
+
+		.edit-profile{
+    	margin-left: 5px 10px;
+    	color: black;
+    	text-decoration: none;
+  	}
+
+  	.button-edit {
+  		height: 50px;
+  		background-color: transparent;
+	    border-radius: 5px;
+	    border: 1px solid #D3D3D3;
+	    color: #262626;
+	    font-size: 14px;
+	    padding: 4px 10px;
+	    font-weight: 500;
+	    margin: 0 5px;
+  	}
+
+  	.show-friends {
+  		margin-left: 5px 10px;
+    	color: black;
+    	text-decoration: none;
+  	}
+
+  	.show-button-friends {
+  		height: 50px;
+  		background-color: transparent;
+	    border-radius: 5px;
+	    border: 1px solid #D3D3D3;
+	    color: #262626;
+	    font-size: 15px;
+	    padding: 4px 10px;
+	    font-weight: 500;
+	    margin: 0 5px;
+  	}
+
+  	.create-post {
+	  	margin-left: 5px 10px;
+    	color: black;
+    	text-decoration: none;
+	  }
+
+	  .create-post-button {
+			height: 50px;
+	  	background-color: transparent;
+		  border-radius: 5px;
+		  border: 1px solid #D3D3D3;
+		  color: #262626;
+		  font-size: 15px;
+		  padding: 4px 10px;
+		  font-weight: 500;
+		  margin: 0 5px;
+	  }
+
+	  .add-friend {
+	  	margin-left: 5px 10px;
+    	color: black;
+    	text-decoration: none;
+	  }
+
+	  .add-friend-button {
+			height: 50px;
+	  	background-color: transparent;
+		  border-radius: 5px;
+		  border: 1px solid #D3D3D3;
+		  color: #262626;
+		  font-size: 15px;
+		  padding: 4px 10px;
+		  font-weight: 500;
+		  margin: 0 5px;
+	  }
+	}
+	.data-user {
+		padding-left: 0;
+		li {
+			display: inline;
+      padding-right: 40px;
+      font-size: 20px;
+      font-weight: 500;
+		}
+	}
+
+	.user-bio {
+		.name {
+			font-size: 25px;
+    	font-weight: 300;
+    	margin: 5px 0;
+		}
+		.site {
+			font-size: 25px;
+    	font-weight: 300;
+    	margin: 5px 0;
+		}
+	}
 }
 
-ul.inform-stat li {
-	display: inline;
-    padding-right: 33px;
-    font-size: 16px;
+.user-border{
+  border-top: 1px solid #D3D3D3;
+  .user-post-images {
+  	display: flex;
+ 		flex-wrap: wrap;
+ 		justify-content: space-between;
+ 		margin: 0 20px;
+ 		.post-image {
+ 			width: 385px;
+ 			height: 385px;
+ 			margin: 10px;
+ 			float: left;
+ 			img.image{
+ 				height: 100%;
+ 				width: 100%;
+ 				border-radius: 4%;
+ 		}
+  }
+}
 }
 
-.image-av {
-	height: 160px;
-	display: flex;
-  justify-content: flex-end;
-}
-
-.avatar-im {
-	width: 200px;
-  height: 200px;
-	border-radius: 70%;
-}
-
-button.edit-but-profile {
-	height: 38px;
-	width: 280px;
-	font-size: 20px
-}
-
-h2.username-bio {
-	font-size: 15px;
-}
-
-div.user-bio {
-	font-size: 15px;
-}
-
-.user-tab {
-  border-top: solid 2px black;
-  display: flex;
-  justify-content: center;
-}
-
-a.tab{
-  	height: 35px;
-  	margin-right: 50px;
-  	line-height: 45px;
-  	color: #999;
-  	font-size: 12px;
-  	font-weight: 500;
-  	text-align: center;
-}
-
-a.active{
-  border-top: 1px solid #262626;
-  color: #262626;
-}
-
-a.text-edit {
-	text-align: center
-}
-
-.user-images {
- 	display: flex;
- 	flex-wrap: wrap;
- 	justify-content: space-between;
- 	margin: 0 20px;
-}
-
-.wrapper {
- 	width: 280px;
- 	height: 280px;
- 	margin: 15px;
- 	img{
- 	width: 100%;
- 	border-radius: 4%;
+.edit-form {
+	padding: 30px 100px 10px 50px;
+	.form-edit {
+		font-size: 14px;
+ 		color: black;
+ 		}
+ 	input[type='text'] {
+ 		border: 1px solid #D3D3D3;
+ 		margin: 5px 0;
+ 		height: 45px;
+ 		font-size: 20px;
  	}
+ 	.image-field {
+ 		margin: 5px 0;
+ 	}
+ 	input[type='submit'] {
+ 		margin: 5px 0;
+ 	}
+
+ 	textarea {
+ 		border: 1px solid #D3D3D3;
+ 		margin: 5px 0;
+ 		font-size: 20px;
+ 	}
+ 	.form-label{
+ 		text-align: right;
+ 		font-weight: 500;
+ 		margin: 10px 0;
+ 		font-size: 20px;
+ 	}
+}
+
+.user-edit-form {
+	flex: 1;
+ 	border: 1px solid #D3D3D3;
+ 	border-left:none;
+	padding: 30px 100px 10px 50px;
+	.avatar{
+	  height: 38px;
+	  width: 38px;
+	  border-radius: 50%;
+	  float: right;
+ }
+ 	.username{
+		font-size: 20px;
+		line-height: 22px;
+		margin-bottom: 0;
+ }
 }

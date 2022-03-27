@@ -6,7 +6,7 @@
 		<% if user_signed_in? %>
 			<% if current_user == comment.user %>
 				<a class="link-edit" href="<%= edit_post_comment_path(post_id: post.id, id: comment.id) %>", data-remote="true"><i class="fa fa-edit edit-icon"></i></a>
-				<a class="link-delete" href="<%= post_path(post_id: post.id, id: comment.id) %>" data-method="delete", data-remote="true"><i class="fa fa-trash del-icon"></i></a>
+				<a class="link-delete" href="<%= post_comment_path(post_id: post.id, id: comment.id) %>" data-method="delete", data-remote="true"><i class="fa fa-trash del-icon"></i></a>
 			<% end %>
 		<% end %>
 	</div>

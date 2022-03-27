@@ -1,36 +1,52 @@
-<%= form_with model: @user do |form| %>
-	<div>
-		<p><%= form.label :name, "Имя:" %></p>
-		<p><%= form.text_field :name %></p>
-	</div>
-	
-	<div>
-		<p><%= form.label :username, "Никнейм пользователя:" %></p>
-		<p><%= form.text_field :username %></p>
-	</div>
-	
-	<div>
-		<p><%= form.label :email, "Почтовый адрес:" %></p>
-		<p><%= form.text_field :email %><p>
+<div class="user-edit-form">
+	<div class="row form-edit">
+		<div class="col-3">
+			<%= image_tag @user.image, class: "avatar" %>
+		</div>
+		<div class="col-9">
+			<p class="username"><%= @user.username %></p>
+		</div>
 	</div>
 
-	<div>
-		<p><%= form.label :phone, "Номер телефона:" %></p>
-		<p><%= form.text_field :phone %></p>
-	</div>
 
-	<div>
-		<p><%= form.label :bio, "Био:" %></p>
-		<p><%= form.text_area :bio %></p>
-	</div>
+	<%= form_with model: @user, html: {class: "edit-form"} do |form| %>
+		<div class="row form-edit">
+			<%= form.label :name, "Имя:", class: "col-3 form-label" %>
+			<%= form.text_field :name, class: "col-9 form-field" %>
+		</div>
+		
+		<div class="row form-edit">
+			<%= form.label :username, "Никнейм:", class: "col-3 form-label" %>
+			<%= form.text_field :username, class: "col-9 form-field" %>
+		</div>
+		
+		<div class="row form-edit">
+			<%= form.label :email, "Почтовый адрес:", class: "col-3 form-label" %>
+			<%= form.text_field :email, class: "col-9 form-field" %>
+		</div>
 
-	<div>
-		<p><%= form.label :image, "Фото:" %></p>
-		<p><%= form.file_field :image %></p>
-	</div>
+		<div class="row form-edit">
+			<%= form.label :phone, "Номер телефона:", class: "col-3 form-label" %>
+			<%= form.text_field :phone, class: "col-9 form-field" %>
+		</div>
 
-	<div>
-		<p><%= form.submit "Редактировать" %></p>
-	</div>
+		<div class="row form-edit">
+			<%= form.label :bio, "Био:", class: "col-3 form-label" %>
+			<%= form.text_area :bio, class: "col-9 form-field" %>
+		</div>
 
-<% end %>
+		<div class="row form-edit">
+			<%= form.label :image, "Фото:", class: "col-3 form-label" %>
+			<%= form.file_field :image, class: "col-9 image-field" %>
+		</div>
+
+		<div class="row form-edit">
+			<div class="col-3">
+			</div>
+			<div class="col-9">
+				<%= form.submit "Редактировать", class: "btn btn-primary " %>
+			</div>
+		</div>
+
+	<% end %>
+</div>
