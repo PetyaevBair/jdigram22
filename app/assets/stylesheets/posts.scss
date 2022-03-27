@@ -24,6 +24,7 @@
 				}
 			}
 			.username {
+				margin-left: 5px;
 				.nickname {
 					padding-top: 13px;
 			        color: #262626;
@@ -41,6 +42,7 @@
 
 		.description {
 			padding: 10px 10px 10px 10px;
+			word-break: break-all;
 		}
 
 		.likes {
@@ -48,10 +50,24 @@
 		}
 
 		.comments-form {
+			display: flex;
 			padding: 10px 10px 10px 10px;
 		}
 		.comments {
 			padding: 10px 10px 10px 10px;
+
+			.comment-blok {
+				display: flex;
+				word-break: break-all;
+
+				.comment-text {
+					width: 500px;
+				}
+
+				.comments-edit {
+					display: flex;
+				}
+			}
 		}
 	}
 
@@ -65,3 +81,24 @@
 .like_off {
 	color: black;
 }
+.del-icon {
+	color: black;
+}
+.edit-icon {
+	color: black;
+}
+
+.comment-button{
+}
+
+p.comment-label {
+	font-size: 25px;
+	margin: auto auto 5px auto;
+}
+
+.link-delete {
+	margin-left: 5px;
+	}
+.link-edit {
+	margin-left: 20px;
+	}

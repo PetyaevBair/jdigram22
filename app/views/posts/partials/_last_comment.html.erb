@@ -1,9 +1,13 @@
-<div id="comment_<%= comment.id %>">
-	<%= comment.text %> 
-	<% if user_signed_in? %>
-		<% if current_user == comment.user %>
-			<%= link_to "Изменить", edit_post_comment_path(post_id: post.id, id: comment.id), remote: true %> 
-			<%= link_to "Удалить", post_comment_path(post.id, comment.id), method: :delete, remote: true %>
+<div class="comment-blok" id="comment_<%= comment.id %>">
+	<div class="comment-text">
+		<%= comment.text %>
+	</div>
+	<div class="comment-edit">
+		<% if user_signed_in? %>
+			<% if current_user == comment.user %>
+				<a class="link-edit" href="<%= edit_post_comment_path(post_id: post.id, id: comment.id) %>", data-remote="true"><i class="fa fa-edit edit-icon"></i></a>
+				<a class="link-delete" href="<%= post_comment_path(post_id: post.id, id: comment.id) %>" data-method="delete", data-remote="true"><i class="fa fa-trash del-icon"></i></a>
+			<% end %>
 		<% end %>
-	<% end %>
+	</div>
 </div>

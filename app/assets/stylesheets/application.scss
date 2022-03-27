@@ -3,6 +3,44 @@
 @import "users";
 @import "posts";
 
+.user-section {
+	display: flex;
+
+	.main-heart {
+		margin: 1px 10px 10px 2px;
+	}
+
+	.main-compass {
+		margin: 1px 10px 10px 2px;
+	}
+
+	.main-ent {
+		margin: 1px 10px 10px 2px;
+		text-decoration: none;
+		color: black;
+	}
+
+	.main-exit {
+		margin: 1px 10px 10px 2px;
+		text-decoration: none;
+		color: black;
+	}
+
+	.main-nick {
+		margin: 1px 10px 10px 2px;
+		text-decoration: none;
+		color: black;
+	}
+}
+
+.avatar-image {
+	width: 40px;
+	height: 40px;
+  border: 1px solid #778899;
+  border-radius: 50%;
+  margin: 1px 10px 10px 2px;
+}
+
 .container {
 	font-size: 30px;
 	max-width: 1300px;
