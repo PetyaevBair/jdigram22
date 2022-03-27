@@ -33,6 +33,10 @@
 			        text-decoration: none;
 			    }
 			}
+
+			.post-edit {
+				margin: auto 15px auto auto;
+			}
 		}
 		
 		.post-image {
@@ -74,7 +78,19 @@
 }
 
 .post-create {
-	margin: 45px 400px 8px;
+	margin: 200px 160px;
+	border: 1px solid #dbdbdb;
+	height: 40vh;
+	padding: 30px;
+	border-radius: 3px;
+	
+	.form-group {
+		margin: 5% 20% 0 25%;
+	}
+
+	input[type='text']{
+		width: 480px;
+ }
 }
 
 .like_on {

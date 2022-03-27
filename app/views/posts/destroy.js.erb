@@ -1,0 +1,1 @@
+$("#post_<%= params[:id] %>").remove()

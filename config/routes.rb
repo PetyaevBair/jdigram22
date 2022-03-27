@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     resources :friendships
   end
-  resources :posts, only: [:index, :new, :create] do
+  resources :posts, only: [:index, :new, :create, :edit, :update, :destroy] do
     resources :comments
   end
   post "/likes/:likeable_type/:likeable_id", to: "likes#create", as: :like

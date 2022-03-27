@@ -9,6 +9,12 @@
 		<div class="username">
 			<%= link_to post.user.username, user_path(post.user), class: "nickname" %>
 		</div>
+		<% if current_user == post.user %>
+			<div class="post-edit">
+				<a class="link-post-edit" href="<%= edit_post_path(post) %>"><i class="fa fa-edit edit-icon"></i></a>
+				<a class="link-post-delete" href="<%= post_path(post) %>" data-method="delete", data-remote="true"><i class="fa fa-trash del-icon"></i></a>
+			</div>
+		<% end %>
 	</div>
 	<%= image_tag post.image, class: "post-image" %>
 	<div class="likes">
