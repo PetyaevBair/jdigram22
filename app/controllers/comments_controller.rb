@@ -17,16 +17,16 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
   end
 
-  def destroy
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
-    @comment.destroy
-  end
-
   def update
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.update(comment_params)
+  end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    @comment.destroy
   end
 
   private

@@ -1,10 +1,10 @@
 <% if current_user == @user %>
-	<p>У вас <%= @friends.count %> друзей</p>
+	<p>У вас <%= @friends_all.count %> друзей</p>
 <% else %>
-	<p>У <%= @user.username %> друзей: <%= @friends.count %></p>
+	<p>У <%= @user.username %> друзей: <%= @friends_all.count %></p>
 <% end %>
 <div>
-	<% @friends.each do |friend| %>
+	<% @friends_all.each do |friend| %>
 		<%= friend.username %>
 	<% end %>
 </div>

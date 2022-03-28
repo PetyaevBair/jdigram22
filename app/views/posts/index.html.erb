@@ -1,23 +1,5 @@
-<div>
+<div class="posts">
 	<% @posts.each do |post| %>
-		<div class="image-post">
-			<%= image_tag post.image %>
-		</div>
-		<div>
-			<% if user_signed_in? %>
-				<% like = current_user.likes.find_by(likeable_type: "Post", likeable_id: post.id) %>
-				<% if like.present? %>
-					<p id="post<%= post.id %>">
-						<%= link_to "Оценить", like_path("Post", post), remote: true, method: :post, class: "like_on", id: post.id %>
-					</p>
-				<% else %>
-					<p id="post<%= post.id %>">
-						<%= link_to "Оценить", like_path("Post", post), remote: true, method: :post, class: "like_off", id: post.id %>
-					</p>
-				<% end %>
-			<% end %>
-			<p class="text-post"><%= post.description %></p>
-		</div>
-		<a><%= link_to "Посмотреть пост", post_path(post) %><a>
+		<%= render partial: "/posts/partials/post", locals: { post: post } %>
 	<% end %>
 </div>

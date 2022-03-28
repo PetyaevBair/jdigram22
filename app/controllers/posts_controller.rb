@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   	end
 
 	def new
-		@post = Post.new
+		@post = current_user.posts.new
 	end
 
 	def create
@@ -19,7 +19,21 @@ class PostsController < ApplicationController
     	else
       		redirect_to new_post_path(@post)
 		end
+	end
 
+	def edit
+		@post = current_user.posts.find(params[:id])
+	end
+
+	def update
+		@post = Post.find(params[:id])
+		@post.update(post_params)
+		redirect_to root_path
+	end
+
+	def destroy
+		@post = current_user.posts.find(params[:id])
+		@post.destroy
 	end
 
 	private

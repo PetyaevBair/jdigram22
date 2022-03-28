@@ -19,14 +19,18 @@
           <a><i class="fa fa-instagram"></i></a>
         </div>
         <div class="user-section">
-          <a><i class="fa fa-compass"></i></a>
-          <a><i class="fa fa-heart"></i></a>
+          <a class="main-compass"><i class="fa fa-compass"></i></a>
+          <a class="main-heart"><i class="fa fa-heart"></i></a>
           <% if user_signed_in? %>
-            <a><%= link_to current_user.username, user_path(current_user) %></a>
-            <a><%= link_to "Выйти", destroy_user_session_path, method: :delete %></a>
+            <div>
+              <% if current_user.image.present? %>
+                <%= image_tag current_user.image, class: "avatar-image" %>
+              <% end %>
+            </div>
+            <%= link_to current_user.username, user_path(current_user), class: "main-nick" %>
+            <%= link_to "Выйти", destroy_user_session_path, method: :delete, class: "main-exit" %>
           <% else %>
-              <a href="<%= new_user_session_path%>">Войти
-              </a>
+            <%= link_to "Войти", new_user_session_path, class: "main-ent" %>
           <% end %>
         </div>
       </div>
