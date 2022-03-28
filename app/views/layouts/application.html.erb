@@ -23,7 +23,9 @@
           <a class="main-heart"><i class="fa fa-heart"></i></a>
           <% if user_signed_in? %>
             <div>
-              <%= image_tag current_user.image, class: "avatar-image" %>
+              <% if current_user.image.present? %>
+                <%= image_tag current_user.image, class: "avatar-image" %>
+              <% end %>
             </div>
             <%= link_to current_user.username, user_path(current_user), class: "main-nick" %>
             <%= link_to "Выйти", destroy_user_session_path, method: :delete, class: "main-exit" %>

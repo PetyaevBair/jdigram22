@@ -1,10 +1,14 @@
 <div class="user-edit-form">
 	<div class="row form-edit">
 		<div class="col-3">
-			<%= image_tag @user.image, class: "avatar" %>
+			<% if @user.image.present? %>
+				<%= image_tag @user.image, class: "avatar" %>
+			<% end %>
 		</div>
 		<div class="col-9">
-			<p class="username"><%= @user.username %></p>
+			<% if @user.username.present? %>
+				<p class="username"><%= @user.username %></p>
+			<% end %>
 		</div>
 	</div>
 

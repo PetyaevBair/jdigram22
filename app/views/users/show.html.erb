@@ -14,12 +14,12 @@
       <div class="profile">
         <p class="username"><%= @user.username %></p>
         <% if user_signed_in? and @user == current_user%>
-          <button class="button-edit"><%= link_to "Редактировать профиль", edit_user_path(@user), class: "edit-profile" %></button>
-          <button class="create-post-button"><%= link_to "Создать пост", new_post_path, class: "create-post" %></button>
+          <%= button_to "Редактировать профиль", edit_user_path(@user), method: :get, class: "edit-profile button-edit" %>
+          <%= button_to "Создать пост", new_post_path, method: :get, class: "create-post create-post-button" %>
         <% end %>
-        <button class="show-button-friends" ><%= link_to "Посмотреть друзей", user_friendships_path(user_id: @user), class: "show-friends" %></button>
+        <%= button_to "Посмотреть друзей", user_friendships_path(user_id: @user), method: :get, class: "show-friends show-button-friends" %>
         <% if user_signed_in? and current_user != @user %>
-          <button class="add-friend-button"><%= link_to "Добавить в друзья", user_friendships_path( user_id: current_user, id: @user), method: :post, class: "add-friend" %></button>
+          <%= button_to "Добавить в друзья", user_friendships_path( user_id: current_user, id: @user), method: :post, class: "add-friend add-friend-button" %>
         <% end %>
       </div>
       <ul class="data-user">
