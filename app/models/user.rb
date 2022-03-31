@@ -26,6 +26,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
+  has_many :dialogs_users
+  has_many :dialogs, through: :dialogs_users
+
   has_many :posts, dependent: :destroy
 
   has_many :comments

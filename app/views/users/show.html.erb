@@ -19,6 +19,7 @@
         <% end %>
         <%= button_to "Посмотреть друзей", user_friendships_path(user_id: @user), method: :get, class: "show-friends show-button-friends" %>
         <% if user_signed_in? and current_user != @user %>
+          <%= button_to "Написать", dialogs_path(user_id: @user.id), method: :post, class: "add-friend add-friend-button" %>
           <%= button_to "Добавить в друзья", user_friendships_path( user_id: current_user, id: @user), method: :post, class: "add-friend add-friend-button" %>
         <% end %>
       </div>
