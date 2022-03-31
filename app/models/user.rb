@@ -31,7 +31,7 @@ class User < ApplicationRecord
   has_many :dialogs, through: :dialogs_users
 
   has_many :posts, dependent: :destroy
-
+  has_many :messages
   has_many :comments
   has_many :likes
   

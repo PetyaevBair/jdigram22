@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: messages
+#
+#  id         :bigint           not null, primary key
+#  body       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  dialog_id  :integer
+#  user_id    :integer
+#
+
+one:
+  body: MyText
+  user_id: 1
+  dialog_id: 1
+
+two:
+  body: MyText
+  user_id: 1
+  dialog_id: 1

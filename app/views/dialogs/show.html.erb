@@ -1,0 +1,22 @@
+<div class="dialog">
+	<% if user_signed_in? %>
+		<div class="user-part">
+			<p>Участники:</p>
+			<% @dialog.users.each do |user| %>
+				<%= user.username %>
+			<% end %>		
+		</div>
+		<div class="chat">
+
+			<% @dialog.messages.each do |message| %>
+				<%= render partial: "/dialogs/partials/message", locals: {message: message} %>
+			<% end %>
+
+		</div>
+		<div class="send-message">
+			<%= render partial: "/messages/partials/new", locals: {message: @dialog.messages.new, dialog: @dialog} %>
+		</div>
+	<% else %>
+	<% end %>
+
+</div>

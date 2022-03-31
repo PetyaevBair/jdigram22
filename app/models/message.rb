@@ -1,16 +1,15 @@
 # == Schema Information
 #
-# Table name: dialogs
+# Table name: messages
 #
 #  id         :bigint           not null, primary key
+#  body       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  dialog_id  :integer
+#  user_id    :integer
 #
-class Dialog < ApplicationRecord
-
-  has_many :messages
-
-  has_many :dialogs_users
-  has_many :users, through: :dialogs_users
-
+class Message < ApplicationRecord
+	belongs_to :user
+	belongs_to :dialog
 end

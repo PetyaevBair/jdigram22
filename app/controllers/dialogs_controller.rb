@@ -1,6 +1,6 @@
 class DialogsController < ApplicationController
   def index
-  	@dialogs_users = DialogsUser.where(user_id: :user_id)
+  	@dialogs_users = DialogsUser.where(user_id: params[:user_id])
   end
 
   def show

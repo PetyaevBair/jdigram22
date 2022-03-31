@@ -142,6 +142,7 @@
 }
 
 .user-border{
+	display: flex;
   border-top: 1px solid #D3D3D3;
   .user-post-images {
   	display: flex;
@@ -149,15 +150,15 @@
  		justify-content: space-between;
  		margin: 0 20px;
  		.post-image {
- 			width: 385px;
- 			height: 385px;
- 			margin: 10px;
- 			float: left;
- 			img.image{
- 				width: 100%;
- 				border-radius: 4%;
- 		}
-  }
+	 			width: 385px;
+	 			height: 385px;
+	 			margin: 10px;
+	 			float: left;
+	 			img.image{
+	 				width: 100%;
+	 				border-radius: 4%;
+	 		}
+ }
 }
 }
 
