@@ -1,5 +1,5 @@
 <div class="post-create">
-	<%= form_with model: message, url: dialog_messages_path(dialog_id: dialog, user_id: current_user.id), method: "post" do |form| %>
+	<%= form_with model: message, url: dialog_messages_path(dialog_id: dialog, user_id: current_user.id), method: "post", local: false do |form| %>
 		<div class="form-group">
 			<%= form.text_area :body %>
 		</div>

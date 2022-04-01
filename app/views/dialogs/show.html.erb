@@ -6,7 +6,7 @@
 				<%= user.username %>
 			<% end %>		
 		</div>
-		<div class="chat">
+		<div class="chat" id="dialog_messages" data-channel-subscribe="dialog" data-dialog-id="<%= @dialog.id %>">
 
 			<% @dialog.messages.each do |message| %>
 				<%= render partial: "/dialogs/partials/message", locals: {message: message} %>
