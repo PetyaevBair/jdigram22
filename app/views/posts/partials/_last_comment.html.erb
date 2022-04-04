@@ -5,8 +5,8 @@
 	<div class="comment-edit">
 		<% if user_signed_in? %>
 			<% if current_user == comment.user %>
-				<a class="link-edit" href="<%= edit_post_comment_path(post_id: post.id, id: comment.id) %>", data-remote="true"><i class="fa fa-edit edit-icon"></i></a>
-				<a class="link-delete" href="<%= post_comment_path(post_id: post.id, id: comment.id) %>" data-method="delete", data-remote="true"><i class="fa fa-trash del-icon"></i></a>
+				<%=link_to "", edit_post_comment_path(post_id: post.id, id: comment.id), remote: true, class: "link-edit fa fa-edit edit-icon" %>
+				<%=link_to "", edit_post_comment_path(post_id: post.id, id: comment.id), method: :delete, remote: true, class: "link-delete fa fa-trash del-icon" %>
 			<% end %>
 		<% end %>
 	</div>

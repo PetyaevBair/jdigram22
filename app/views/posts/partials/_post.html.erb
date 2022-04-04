@@ -11,8 +11,8 @@
 		</div>
 		<% if current_user == post.user %>
 			<div class="post-edit">
-				<a class="link-post-edit" href="<%= edit_post_path(post) %>" data-method="get"><i class="fa fa-edit edit-icon"></i></a>
-				<a class="link-post-delete" href="<%= post_path(post) %>" data-method="delete", data-remote="true"><i class="fa fa-trash del-icon"></i></a>
+				<%= link_to "", edit_post_path(post), class: "link-post-edit fa fa-edit edit-icon" %>
+				<%= link_to "", post_path(post), method: :delete, remote: true, class: "link-post-delete fa fa-trash del-icon" %>
 			</div>
 		<% end %>
 	</div>
@@ -21,18 +21,14 @@
 		<% if user_signed_in? %>
 			<% like = current_user.likes.find_by(likeable_type: "Post", likeable_id: post.id) %>
 			<% if like.present? %>
-				<a class="like", href="<%= like_path(likeable_type: "Post", likeable_id: post.id) %>" data-method="post", data-remote="true">
-					<i class="fa fa-heart like_on", id="<%=post.id%>"></i>
-				</a>
+				<%= link_to "", like_path(likeable_type: "Post", likeable_id: post.id), method: :post, remote: true, class: "like fa fa-heart like_on", id: post.id %> 
 			<% else %>
-				<a class="like", href="<%= like_path(likeable_type: "Post", likeable_id: post.id) %>" data-method="post", data-remote="true">
-					<i class="fa fa-heart like_off", id="<%=post.id%>"></i>
-				</a>
+				<%= link_to "", like_path(likeable_type: "Post", likeable_id: post.id), method: :post, remote: true, class: "like fa fa-heart like_off", id: post.id %>
 			<% end %>
 		<% else %>
-			<a class="like">
+			<p> class="like">
 				<i class="fa fa-heart like_off"></i>
-			</a>
+			</p>
 		<% end %>
 		<%= post.likes.count %>
 	</div>
