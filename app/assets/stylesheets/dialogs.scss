@@ -1,3 +1,22 @@
-// Place all the styles related to the Dialogs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.dialog {
+	border: 1px solid #778899;
+	.user-part {
+		border-bottom: 1px solid #778899;
+	}
+	.chat {
+		height: 500px;
+
+	}
+
+	.send-message {
+		margin: auto auto 0 auto;
+		border-top: 1px solid #778899;
+		display: flex;
+		.form-group {
+			margin: 5px auto auto 5px;
+		}
+		.btn-message {
+			margin: auto auto 5px 5px;
+		}
+	}
+}

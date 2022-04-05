@@ -1,15 +1,14 @@
 class UsersController < ApplicationController
 
+  before_action :user_find, only: [:show, :edit, :update]
+
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
 
     if @user.update(users_params)
       redirect_to user_path(current_user)
@@ -22,6 +21,10 @@ class UsersController < ApplicationController
 
   def users_params
     params.require(:user).permit(:bio, :name, :username, :phone, :email, :image)
+  end
+
+  def user_find
+    @user = User.find(params[:id])
   end
 
 end

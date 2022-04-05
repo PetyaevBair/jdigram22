@@ -32,10 +32,21 @@
 			        font-weight: 600;
 			        text-decoration: none;
 			    }
+			    .nickname:hover {
+			    	color: blue
+			    }
 			}
 
 			.post-edit {
 				margin: auto 15px auto auto;
+
+				.link-post-edit {
+					text-decoration: none;
+				}
+
+				.link-post-delete {
+					text-decoration: none;
+				}
 			}
 		}
 		
@@ -51,6 +62,10 @@
 
 		.likes {
 			padding: 10px 10px 10px 10px;
+
+			.like {
+				text-decoration: none;
+			}
 		}
 
 		.comments-form {

@@ -3,9 +3,21 @@
 @import "users";
 @import "posts";
 @import "search";
+@import "dialogs";
 
 .user-section {
 	display: flex;
+
+	.dialogs {
+		margin: 8px 10px 10px 2px;
+		text-decoration: none;
+		color: black;
+	}
+	
+	.dialogs:hover {
+		color: blue;
+		text-decoration: none;
+	}
 
 	.main-heart {
 		margin: 6px 10px 10px 2px;
@@ -27,10 +39,19 @@
 		color: black;
 	}
 
+	.main-exit:hover {
+		color: blue;
+		text-decoration: none;
+	}
+
 	.main-nick {
 		margin: 8px 10px 10px 2px;
 		text-decoration: none;
 		color: black;
+	}
+	.main-nick:hover {
+		color: blue;
+		text-decoration: none;
 	}
 }
 
@@ -47,14 +68,23 @@
 	max-width: 1300px;
 }
 
+.search {
+	margin-top: 8px;
+}
+
 .logo {
 	font-size: 35px;
 	font-family: 'Poiret One';
-}
 
-a.logo-inst:focus {
-	text-decoration: none;
-	color: black
+	.logo-inst {
+		text-decoration: none;
+		color: black
+	}
+
+	.logo-inst:hover {
+		text-decoration: none;
+		color: blue;
+	}
 }
 
 a {

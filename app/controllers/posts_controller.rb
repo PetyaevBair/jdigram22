@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
+	before_action :post_find, only: [:show, :update]
+
 	def index
 		@posts = Post.includes(:likes).order(created_at: :desc)
 	end
 
 	def show
-    	@post = Post.find(params[:id])
     	@comment = @post.comments.new
   	end
 
@@ -26,7 +27,6 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		@post = Post.find(params[:id])
 		@post.update(post_params)
 		redirect_to root_path
 	end
@@ -40,6 +40,10 @@ class PostsController < ApplicationController
 
 	def post_params
 		params.require(:post).permit(:description, :image)
+	end
+
+	def post_find
+		@post = Post.find(params[:id])
 	end
 
 end
