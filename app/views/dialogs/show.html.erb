@@ -3,7 +3,7 @@
 		<div class="user-part">
 			<p>Участники:</p>
 			<% @dialog.users.each do |user| %>
-				<%= user.username %>
+				<p><%= user.username %></p>
 			<% end %>		
 		</div>
 		<div class="chat" id="dialog_messages" data-channel-subscribe="dialog" data-dialog-id="<%= @dialog.id %>">

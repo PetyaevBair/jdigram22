@@ -41,8 +41,10 @@
 
 		<div class="row form-edit">
 			<%= form.label :image, "Фото:", class: "col-3 form-label" %>
-			<%= form.file_field :image, class: "col-9 image-field" %>
+			<%= form.file_field :image, class: "col-9 image-field", onchange: "readURL(event.target)" %>
 		</div>
+
+		<img id="preview" src="">
 
 		<div class="row form-edit">
 			<div class="col-3">

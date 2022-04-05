@@ -5,6 +5,6 @@
 <% end %>
 <div>
 	<% @friends_all.each do |friend| %>
-		<%= friend.username %>
+		<%= link_to friend.username, user_path(friend.id), class: "link-friend" %>
 	<% end %>
 </div>

@@ -94,15 +94,25 @@
 }
 
 .post-create {
-	margin: 200px 160px;
 	border: 1px solid #dbdbdb;
-	height: 40vh;
+	margin: 100px 160px;
+	height: 100%;
 	padding: 30px;
 	border-radius: 3px;
 	
 	.form-group {
-		margin: 5% 20% 0 25%;
+		height: 70px;
+		width: 200px;
+		margin: 10px auto 10px 25%;
 	}
+	.btn-post-create {
+		text-align: center;
+	}
+
+	#preview {
+		width: 200px;
+		margin: 10px auto auto 40%;
+		}
 
 	input[type='text']{
 		width: 480px;

@@ -175,7 +175,7 @@
  		font-size: 20px;
  	}
  	.image-field {
- 		margin: 5px 0;
+ 		margin: 11px 0;
  	}
  	input[type='submit'] {
  		margin: 5px 0;
@@ -192,6 +192,10 @@
  		margin: 10px 0;
  		font-size: 20px;
  	}
+ 	#preview {
+		width: 200px;
+		margin: 10px auto 10px 25%;
+	}
 }
 
 .user-edit-form {
