@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     resources :messages
   end
   post "/likes/:likeable_type/:likeable_id", to: "likes#create", as: :like
+  get "search", to: "search#search"
 end
