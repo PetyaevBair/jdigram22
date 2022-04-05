@@ -62,9 +62,14 @@
 
 		.likes {
 			padding: 10px 10px 10px 10px;
-
+			display: flex;
 			.like {
 				text-decoration: none;
+			}
+			.count-likes {
+				height: 28px;
+				margin-top: 2px;
+				border: 0px;
 			}
 		}
 
@@ -82,6 +87,14 @@
 				.comment-text {
 					width: 500px;
 					font-size: 20px;
+					.link-user {
+						text-decoration: none;
+						color: black;
+					}
+					.link-user:hover {
+						text-decoration: none;
+						color: blue;
+					}
 				}
 
 				.comments-edit {
@@ -143,9 +156,20 @@ p.comment-label {
 
 .link-delete {
 	margin-left: 5px;
+	text-decoration: none;
 	}
 .link-edit {
+	text-decoration: none;
 	margin-left: 20px;
+	}
+
+.link-delete:hover {
+	color: blue;
+	text-decoration: none;
+	}
+.link-edit:hover {
+	text-decoration: none;
+	color: blue;
 	}
 
 a.like {

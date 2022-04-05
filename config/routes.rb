@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     resources :friendships
   end
-  resources :posts, only: [:index, :new, :create, :edit, :update, :destroy] do
+  resources :posts do
     resources :comments
   end
   resources :dialogs do

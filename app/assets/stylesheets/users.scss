@@ -36,30 +36,21 @@
 
 		.profile {
 			display: flex;
+			.create-post {
+				margin-top: 6px;
+		}
 		}
 		.username {
 			font-size: 30px;
-    	line-height: 40px;
-    	font-weight: 400;
-    	margin-right: 5px;
+	    	line-height: 40px;
+	    	font-weight: 400;
+	    	margin-right: 5px;
 		}
 
 		.edit-profile{
-    	margin-left: 5px 10px;
-    	color: black;
-    	text-decoration: none;
-  	}
-
-  	.button-edit {
-  		height: 50px;
-  		background-color: transparent;
-	    border-radius: 5px;
-	    border: 1px solid #D3D3D3;
-	    color: #262626;
-	    font-size: 14px;
-	    padding: 4px 10px;
-	    font-weight: 500;
-	    margin: 0 5px;
+	    	margin-left: 5px 10px;
+	    	color: black;
+	    	text-decoration: none;
   	}
 
   	.show-friends {
@@ -68,17 +59,6 @@
     	text-decoration: none;
   	}
 
-  	.show-button-friends {
-  		height: 50px;
-  		background-color: transparent;
-	    border-radius: 5px;
-	    border: 1px solid #D3D3D3;
-	    color: #262626;
-	    font-size: 15px;
-	    padding: 4px 10px;
-	    font-weight: 500;
-	    margin: 0 5px;
-  	}
 
   	.create-post {
 	  	margin: 15px 10px;
@@ -86,36 +66,18 @@
     	text-decoration: none;
 	  }
 
-	  .create-post-button {
-			height: 50px;
-	  	background-color: transparent;
-		  border-radius: 5px;
-		  border: 1px solid #D3D3D3;
-		  color: #262626;
-		  font-size: 15px;
-		  padding: 4px 10px;
-		  font-weight: 500;
-		  margin: 3px 5px;
-		  width: 160px;
-	  }
-
-	  .add-friend {
-	  	margin-left: 5px 10px;
+	.add-friend {
+		margin-left: 15px 10px;
     	color: black;
     	text-decoration: none;
 	  }
 
-	  .add-friend-button {
-			height: 50px;
-	  	background-color: transparent;
-		  border-radius: 5px;
-		  border: 1px solid #D3D3D3;
-		  color: #262626;
-		  font-size: 15px;
-		  padding: 4px 10px;
-		  font-weight: 500;
-		  margin: 0 5px;
-	  }
+	.add-dialog {
+		margin: 6px 10px;
+    	color: black;
+    	text-decoration: none;
+	}
+
 	}
 	.data-user {
 		padding-left: 0;

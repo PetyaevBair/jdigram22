@@ -1,5 +1,6 @@
 <% @dialogs_users.each do |dialogs_user| %>
 	<div>
-		<p> Ваш диалог: <%= dialogs_user.user.username %></p>
+		<% dialog = dialogs_user.dialog %>
+		<p> Ваш диалог: <%= link_to dialog.id, dialog_path(dialog.id), class: "link-dialog" %></p>
 	</div>
 <% end %>

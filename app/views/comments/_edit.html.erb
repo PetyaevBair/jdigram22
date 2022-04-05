@@ -5,10 +5,8 @@
 			<p><%= form.text_area :text %></p>
 		</div>
 		<div>
-			<p><%= form.submit "Изменить комментарий" %></p>
+			<p><%= form.submit "Изменить комментарий", class: "btn btn-light" %></p>
+			<%= button_to "Отменить", post_comment_path(@post, @comment), remote: true, class: "btn btn-light" %>
 		</div>
 	<% end %>
-	<div>
-		<%= link_to "Отменить", post_comment_path(@post, @comment), remote: true %>
-	</div>
 </div>

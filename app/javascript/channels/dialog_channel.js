@@ -27,7 +27,7 @@ import consumer from "./consumer"
        console.log('RECIEVED', data)
 
        var messages = $('#dialog_messages');
-       messages.append(data['user'] + ": " + data['body']);
+       messages.append(`<div class="message">${data["user"] + ": " + data["body"]}</div>`);
        // Called when there's incoming data on the websocket for this channel
      }
   });

@@ -26,11 +26,11 @@
 				<%= link_to "", like_path(likeable_type: "Post", likeable_id: post.id), method: :post, remote: true, class: "like fa fa-heart like_off", id: post.id %>
 			<% end %>
 		<% else %>
-			<p> class="like">
+			<p class="like">
 				<i class="fa fa-heart like_off"></i>
 			</p>
 		<% end %>
-		<%= post.likes.count %>
+		<input class="count-likes" id="like_<%= post.id %>" value="<%= post.likes.count %>">
 	</div>
 	<div class="description">
     	<%= post.description %>
