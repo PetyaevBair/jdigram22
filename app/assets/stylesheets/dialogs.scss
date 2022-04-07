@@ -2,12 +2,36 @@
 	border: 1px solid #778899;
 	.user-part {
 		border-bottom: 1px solid #778899;
+		.list-user {
+			text-decoration: none;
+			color: black;
+		}
+		.list-user:hover {
+			text-decoration: none;
+			color: blue;
+		}
 	}
 	.chat {
 		height: 500px;
 		overflow-y: scroll;
 		.message {
 			margin: 2px auto 2px 5px;
+			.link-user {
+				text-decoration: none;
+				color: black;
+			}
+			.link-user:hover {
+				text-decoration: none;
+				color: blue;
+			}
+			.remove-message {
+				text-decoration: none;
+				color: black;
+			}
+			.remove-message:hover {
+				text-decoration: none;
+				color: blue;
+			}
 		}
 	}
 

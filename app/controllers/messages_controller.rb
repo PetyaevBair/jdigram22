@@ -7,6 +7,12 @@ class MessagesController < ApplicationController
 	    end	
 	end
 
+	def destroy
+		@dialog = Dialog.find(params[:dialog_id])
+		@message = @dialog.messages.find(params[:id])
+		@message.destroy
+	end
+
 	private
 	
 	def message_params
