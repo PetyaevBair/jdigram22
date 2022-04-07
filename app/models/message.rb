@@ -12,4 +12,6 @@
 class Message < ApplicationRecord
 	belongs_to :user
 	belongs_to :dialog
+
+	validates :body, presence: true
 end
