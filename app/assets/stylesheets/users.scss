@@ -51,7 +51,26 @@
 	    	margin-left: 5px 10px;
 	    	color: black;
 	    	text-decoration: none;
-  	}
+  		}
+  		.data-user {
+  			li {
+  				width: 150px;
+  			}
+  			.count-subscribes {
+  				outline:none;
+  				border: 0px;
+  				width: 20px;
+  				font-size: 20px;
+  				pointer-events: none;
+  			}
+  			.count-subscriptions {
+  				outline:none;
+  				border: 0px;
+  				width: 20px;
+  				font-size: 20px;
+  				pointer-events: none;
+  			}
+  		}
 
   	.show-friends {
   		margin-left: 5px 10px;
@@ -153,6 +172,9 @@
  		font-weight: 500;
  		margin: 10px 0;
  		font-size: 20px;
+ 	}
+ 	.email-input {
+ 		pointer-events: none;
  	}
  	#preview {
 		width: 200px;

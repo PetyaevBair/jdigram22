@@ -20,13 +20,18 @@
         <%= button_to "Посмотреть друзей", user_friendships_path(user_id: @user), method: :get, class: "show-friends btn btn-light" %>
         <% if user_signed_in? and current_user != @user %>
           <%= button_to "Написать", dialogs_path(user_id: @user.id), method: :post, class: "add-dialog btn btn-light" %>
-          <%= button_to "Добавить в друзья", user_friendships_path( user_id: current_user, id: @user), method: :post, class: "add-friend btn btn-light" %>
+          
+          <% if current_user.friendships.where(friend_id: @user.id).present? %> 
+            <%= render partial: "/posts/partials/remote_friend", locals: { user: @user } %>
+          <% else %>
+            <%= render partial: "/posts/partials/add_friend", locals: { user: @user } %>
+          <% end %>
         <% end %>
       </div>
       <ul class="data-user">
         <li>Публикаций: <%= @user.posts.count %></li>
-        <li>Подписчиков: <%= Friendship.where(friend_id: @user.id).count %></li>
-        <li>Подписок: <%= Friendship.where(user_id: @user.id).count %></li>
+        <li>Подписчиков: <input class="count-subscribes" value="<%= Friendship.where(friend_id: @user.id).count %>"></li>
+        <li>Подписок: <input class="count-subscriptions" value="<%= Friendship.where(user_id: @user.id).count %>"></li>
       </ul>
       <div class=user-bio>
         <% if @user.name.present? %>

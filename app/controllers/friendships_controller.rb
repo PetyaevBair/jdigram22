@@ -13,6 +13,7 @@ class FriendshipsController < ApplicationController
 
 	def create
 	    @friendships = current_user.friendships.where(friend_id: params[:id])
+	    @user = User.find(params[:id])
 	    if @friendships.present?
 	    	@friendships.destroy_all
 	    else
