@@ -1,6 +1,0 @@
-<%= form_for :term, url: search_path, method: :get do |form| %>
-  <p>
-    <%= text_field_tag :term, params[:term] %>
-    <%= submit_tag "Найти", name: nil, class: "btn-search btn btn-light" %>
-  </p>
-<% end %>

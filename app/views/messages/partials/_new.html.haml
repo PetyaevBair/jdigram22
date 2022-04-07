@@ -1,0 +1,6 @@
+.msg
+  = form_with model: message, url: dialog_messages_path(dialog_id: dialog, user_id: current_user.id), method: "post", local: false do |form|
+    .form-group
+      = form.text_area :body, id: "message-text-#{dialog.id}"
+    .btn-message
+      = form.submit "Отправить", class: 'btn btn-primary'

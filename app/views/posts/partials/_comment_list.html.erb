@@ -1,7 +1,0 @@
-<div class="comment-part" id="comment_box">
-  <% post.comments.each do |comment| %>
-    <% if comment.id.present? %>
-      <%= render partial: "/posts/partials/last_comment", locals: { post: post, comment: comment }%>
-    <% end %>
-  <% end %>
-</div>

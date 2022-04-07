@@ -1,5 +1,0 @@
-<% dialog = message.dialog %>
-
-<div class="message" id= "message-<%= message.id %>">
-	<p><%= link_to message.user.username, user_path(message.user), class: "link-user" %>: <%= message.body %> <%= link_to "", dialog_message_path(dialog_id: dialog, id: message.id), method: :delete, remote: true, class: "remove-message fa fa-trash" %></p>
-</div>

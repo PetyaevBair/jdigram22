@@ -1,0 +1,42 @@
+.user-profile
+  .row
+    .col-4
+      .image-avatar
+        - if @user.image.blank?
+          %p Фото нет
+        - else
+          = image_tag @user.image, class: "avatar-image"
+    .col-8.info
+      .profile
+        %p.username= @user.username
+        - if user_signed_in? and @user == current_user
+          = button_to "Редактировать профиль", edit_user_path(@user), method: :get, class: "edit-profile btn btn-light"
+          = button_to "Создать пост", new_post_path, method: :get, class: "create-post btn btn-light"
+        = button_to "Посмотреть друзей", user_friendships_path(user_id: @user), method: :get, class: "show-friends btn btn-light"
+        - if user_signed_in? and current_user != @user
+          = button_to "Написать", dialogs_path(user_id: @user.id), method: :post, class: "add-dialog btn btn-light"
+          - if current_user.friendships.where(friend_id: @user.id).present?
+            = render partial: "/posts/partials/remote_friend", locals: { user: @user }
+          - else
+            = render partial: "/posts/partials/add_friend", locals: { user: @user }
+      %ul.data-user
+        %li
+          Публикаций: #{@user.posts.count}
+        %li
+          Подписчиков:
+          %input.count-subscribes{:value => "#{Friendship.where(friend_id: @user.id).count}"}/
+        %li
+          Подписок:
+          %input.count-subscriptions{:value => "#{Friendship.where(user_id: @user.id).count}"}/
+      .user-bio
+        - if @user.name.present?
+          %p.name= @user.name
+        - else
+          %p Нет имени
+        %p.site JDIGram
+.user-border
+  .user-post-images.row
+    - @user.posts.each do |post|
+      .post-image.col-4
+        = link_to post_path(post) do
+          = image_tag post.image, class: "image"

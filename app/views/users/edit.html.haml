@@ -1,0 +1,32 @@
+.user-edit-form
+  .row.form-edit
+    .col-3
+      - if @user.image.present?
+        = image_tag @user.image, class: "avatar"
+    .col-9
+      - if @user.username.present?
+        %p.username= @user.username
+  = form_with model: @user, html: {class: "edit-form"} do |form|
+    .row.form-edit
+      = form.label :name, "Имя:", class: "col-3 form-label"
+      = form.text_field :name, class: "col-9 form-field"
+    .row.form-edit
+      = form.label :username, "Никнейм:", class: "col-3 form-label"
+      = form.text_field :username, class: "col-9 form-field"
+    .row.form-edit
+      = form.label :email, "Почтовый адрес:", class: "col-3 form-label"
+      = form.text_field :email, class: "col-9 form-field email-input"
+    .row.form-edit
+      = form.label :phone, "Номер телефона:", class: "col-3 form-label"
+      = form.text_field :phone, class: "col-9 form-field"
+    .row.form-edit
+      = form.label :bio, "Био:", class: "col-3 form-label"
+      = form.text_area :bio, class: "col-9 form-field"
+    .row.form-edit
+      = form.label :image, "Фото:", class: "col-3 form-label"
+      = form.file_field :image, class: "col-9 image-field", onchange: "readURL(event.target)"
+    %img#preview{:src => ""}/
+    .row.form-edit
+      .col-3
+      .col-9
+        = form.submit "Редактировать", class: "btn btn-primary "

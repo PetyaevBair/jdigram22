@@ -1,0 +1,5 @@
+- @dialogs_users.each do |dialogs_user|
+  %div
+    - dialog = dialogs_user.dialog
+    %p
+      Ваш диалог: #{link_to dialog.id, dialog_path(dialog.id), class: "link-dialog"}

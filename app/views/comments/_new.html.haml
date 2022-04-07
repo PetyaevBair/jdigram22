@@ -1,0 +1,6 @@
+= form_with model: comment, url: post_comments_path(post_id: post, id: comment), method: "post", local: false do |form|
+  %div
+    %p.comment-label= form.label "Добавить комментарий"
+    %p= form.text_field :text, id: "comment-text-#{post.id}"
+  .comment-button
+    %p= form.submit "Отправить", class: "btn btn-primary"

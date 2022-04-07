@@ -1,6 +1,0 @@
-<div class="found-users">
-	<p>Все найденные пользователи: </p>
-	<% @users.each do |user| %>
-		<p><%= link_to user.username, user_path(user.id), class: "found-user" %></p>
-	<% end %>
-</div>

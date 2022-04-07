@@ -1,0 +1,8 @@
+%div{:id => "edit_comment_#{@comment.id}"}
+  = form_with model: @comment, url: post_comment_path(@post, @comment), method: :patch, local: false do |form|
+    %div
+      %p= form.label :text, "Содержимое:"
+      %p= form.text_area :text
+    %div
+      %p= form.submit "Изменить комментарий", class: "btn btn-light"
+      = button_to "Отменить", post_comment_path(@post, @comment), remote: true, class: "btn btn-light"

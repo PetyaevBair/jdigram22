@@ -1,0 +1,42 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title JDIGram
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.bg-light.d-flex
+      .container
+        .logo
+          = link_to "JDIGram", root_path, class: "logo-inst"
+          %a
+            %i.fa.fa-instagram
+        .search
+          = render 'search/form'
+        .user-section
+          %a.main-compass
+            %i.fa.fa-compass
+          %a.main-heart
+            %i.fa.fa-heart
+          - if user_signed_in?
+            %div
+              - if current_user.image.present?
+                = image_tag current_user.image, class: "avatar-image"
+            = link_to "Диалоги", dialogs_path(user_id: current_user.id), class: "dialogs"
+            = link_to current_user.username, user_path(current_user), class: "main-nick"
+            = link_to "Выйти", destroy_user_session_path, method: :delete, class: "main-exit"
+          - else
+            = link_to "Войти", new_user_session_path, class: "main-ent"
+    %main.container{:style => "min-height: 500px;"}
+      = yield
+    %footer.container.footer
+      %nav.navbar.d-flex
+        %ul
+          %li О нас
+          %li Условия пользования
+          %li Техподдержка
+        %p 2022 JDIGram

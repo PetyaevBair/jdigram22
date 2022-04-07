@@ -1,0 +1,9 @@
+$('##{@post.id}').css('color',function() {
+let count = $('#like_#{@post.id}')
+- if @likes.present?
+  count.val(parseInt(count.val())+1);
+  return 'red';
+- else
+  count.val(parseInt(count.val())-1);
+  return 'black';
+});

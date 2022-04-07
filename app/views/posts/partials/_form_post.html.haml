@@ -1,0 +1,9 @@
+.post-create
+  = form_with model: @post do |form|
+    %img#preview{:src => ""}/
+    .form-group
+      = form.text_field :description
+    .form-group
+      = form.file_field :image, onchange: "readURL(event.target)"
+    .btn-post-create
+      = form.submit "Отправить", class: 'btn btn-primary'
