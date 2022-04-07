@@ -1,1 +1,1 @@
-<%= button_to "Удалить из друзей", user_friendships_path(user_id: current_user, id: @user), method: :post, remote: true, class: "add-friend btn btn-light"%>
+<%= button_to "Удалить из друзей", user_friendships_path(user_id: current_user, id: @user), method: :post, remote: true, class: "remote-friend btn btn-light", id: "remote-friend-#{user.id}"%>

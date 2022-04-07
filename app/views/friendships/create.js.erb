@@ -1,8 +1,8 @@
-let countSubscribes = $('.count-subscribes')
+// let countSubscribes = $('.count-subscribes')
 <% if @friendships.present? %>
-	$('.add-friend').replaceWith('<%= j render partial: "/posts/partials/remote_friend", locals: { user: @user } %>');
-	countSubscribes.val(parseInt(countSubscribes.val())+1)
+	$('#add-friend-<%= @user.id %>').parent().replaceWith('<%= j render partial: "/posts/partials/remote_friend", locals: { user: @user } %>');
+	$('.count-subscribes').val(parseInt($('.count-subscribes').val())+1)
 <% else %>
-	$('.add-friend').replaceWith('<%= j render partial: "/posts/partials/add_friend", locals: { user: @user } %>');
-	countSubscribes.val(parseInt(countSubscribes.val())-1)
+	$('#remote-friend-<%= @user.id %>').parent().replaceWith('<%= j render partial: "/posts/partials/add_friend", locals: { user: @user } %>');
+	$('.count-subscribes').val(parseInt($('.count-subscribes').val())-1)
 <% end %>

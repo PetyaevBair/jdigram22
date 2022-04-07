@@ -19,6 +19,10 @@ class FriendshipsController < ApplicationController
 	    else
 			@friendships = @current_user.friendships.create(friend_id: params[:id])
 		end
+
+		respond_to do |format|
+			format.js
+		end
   	end
 
   	private
