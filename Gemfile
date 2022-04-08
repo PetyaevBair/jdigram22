@@ -32,6 +32,7 @@ gem "jquery-rails"
 gem "devise"
 gem "elasticsearch-model"
 gem "elasticsearch-rails"
+gem "redis"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
