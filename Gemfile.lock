@@ -85,9 +85,6 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.17)
     bindex (0.8.1)
-    bonsai-elasticsearch-rails (5.0.0)
-      elasticsearch-model (~> 5)
-      elasticsearch-rails (~> 5)
     bootsnap (1.11.1)
       msgpack (~> 1.2)
     bootstrap (4.1.3)
@@ -320,7 +317,6 @@ PLATFORMS
 DEPENDENCIES
   annotate
   aws-sdk-s3
-  bonsai-elasticsearch-rails (~> 5)
   bootsnap (>= 1.4.4)
   bootstrap (~> 4.1.1)
   byebug
