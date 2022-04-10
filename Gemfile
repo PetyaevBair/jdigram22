@@ -34,7 +34,7 @@ gem "elasticsearch-model"
 gem "elasticsearch-rails"
 gem "redis"
 gem "aws-sdk-s3", require: false
-
+gem 'bonsai-elasticsearch-rails', '~> 5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
