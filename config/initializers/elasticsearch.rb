@@ -1,1 +1,1 @@
-Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['ELASTICSEARCH_URL'] || "localhost:9200"
+Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['BONSAI_URL'] || "localhost:9200"
