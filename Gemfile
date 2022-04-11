@@ -30,12 +30,14 @@ gem 'haml-rails'
 gem "font-awesome-rails"
 gem "jquery-rails"
 gem "devise"
-gem "elasticsearch-model"
-gem "elasticsearch-rails"
 gem "redis"
 gem "aws-sdk-s3", require: false
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'bonsai-elasticsearch-rails', '~> 6'
+gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '6.x'
+gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '6.x'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
