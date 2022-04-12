@@ -35,8 +35,7 @@ gem "aws-sdk-s3", require: false
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'elasticsearch-model'
-gem'elasticsearch-rails'
-gem 'bonsai-elasticsearch-rails', '~> 7'
+gem 'elasticsearch-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
