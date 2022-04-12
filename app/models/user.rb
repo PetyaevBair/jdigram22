@@ -31,7 +31,6 @@ class User < ApplicationRecord
 
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
-  document_type "user"
 
   has_many :dialogs_users, dependent: :destroy
   has_many :dialogs, through: :dialogs_users, dependent: :destroy
