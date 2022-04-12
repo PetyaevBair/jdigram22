@@ -43,7 +43,4 @@ class User < ApplicationRecord
   has_one_attached :image
   has_many :friendships
   has_many :friends, through: :friendships
-
-  index_name "user-#{Rails.env}"
-
 end
