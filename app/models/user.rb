@@ -20,19 +20,16 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
-
-require 'elasticsearch/model'
-
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  searchkick
 
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
-
-
+  elastic_query = {
+    fields: [:username, :name]
+  }
 
   has_many :dialogs_users, dependent: :destroy
   has_many :dialogs, through: :dialogs_users, dependent: :destroy
