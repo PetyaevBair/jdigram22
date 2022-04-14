@@ -1,4 +1,1 @@
-require 'elasticsearch/model'
-require 'elasticsearch/transport'
-
-Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['BONSAI_URL'] || "localhost:9200"
+Elasticsearch::Model.client = Elasticsearch::Client.new url: ENV['BONSAI_URL']
