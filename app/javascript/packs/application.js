@@ -55,4 +55,7 @@ function readURL(input) {
     }
 }
 
-global.readURL = readURL
+global.readURL = readURL// Support component names relative to this directory:
+var componentRequireContext = require.context("components", true);
+var ReactRailsUJS = require("react_ujs");
+ReactRailsUJS.useContext(componentRequireContext);
