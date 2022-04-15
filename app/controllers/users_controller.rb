@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :user_find, only: [:show, :edit, :update]
 
   def show
+    @subscribes = Friendship.where(friend_id: @user.id).count
+    @subscriptions = Friendship.where(user_id: @user.id).count
   end
 
   def edit

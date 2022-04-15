@@ -24,10 +24,10 @@
           Публикаций: #{@user.posts.count}
         %li
           Подписчиков:
-          %input.count-subscribes{:value => "#{Friendship.where(friend_id: @user.id).count}"}/
+          %input.count-subscribes{:value => "#{@subscribes}"}/
         %li
           Подписок:
-          %input.count-subscriptions{:value => "#{Friendship.where(user_id: @user.id).count}"}/
+          %input.count-subscriptions{:value => "#{@subscriptions}"}/
       .user-bio
         - if @user.name.present?
           %p.name= @user.name
