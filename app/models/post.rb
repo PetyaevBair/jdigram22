@@ -9,10 +9,20 @@
 #  user_id     :integer
 #
 class Post < ApplicationRecord
-	belongs_to :user
+  belongs_to :user
+	
+  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :likes, as: :likeable, dependent: :destroy
 
-	has_many :comments, as: :commentable, dependent: :destroy
-	has_many :likes, as: :likeable, dependent: :destroy
+  has_one_attached :image
 
-	has_one_attached :image
+  validates :description, presence: true
+
+  validate :image_presence
+
+  private
+
+  def image_presence
+  	errors.add(:image, "не может быть пустым") unless image.attached?
+  end
 end
