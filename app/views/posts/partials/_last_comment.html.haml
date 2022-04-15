@@ -5,5 +5,7 @@
   .comment-edit
     - if user_signed_in?
       - if current_user == comment.user
-        = link_to "", edit_post_comment_path(post_id: post.id, id: comment.id), remote: true, class: "link-edit fa fa-edit edit-icon"
-        = link_to "", post_comment_path(post_id: post.id, id: comment.id), method: :delete, remote: true, class: "link-delete fa fa-trash del-icon"
+        = link_to edit_post_comment_path(post_id: post.id, id: comment.id), remote: true do
+          .link-edit.fa.fa-edit.edit-icon
+        = link_to post_comment_path(post_id: post.id, id: comment.id), method: :delete, remote: true do
+          .link-delete.fa.fa-trash.del-icon

@@ -6,15 +6,13 @@
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   %body
     %nav.navbar.bg-light.d-flex
       .container
         .logo
           = link_to "JDIGram", root_path, class: "logo-inst"
-          %a
-            %i.fa.fa-instagram
         .search
           = render 'search/form'
         .user-section

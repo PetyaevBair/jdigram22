@@ -1,0 +1,116 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import '@fortawesome/fontawesome-free';
+@import "users";
+@import "posts";
+@import "search";
+@import "dialogs";
+@import "friendships";
+
+.user-section {
+	display: flex;
+
+	.dialogs {
+		margin: 8px 10px 10px 2px;
+		text-decoration: none;
+		color: black;
+	}
+	
+	.dialogs:hover {
+		color: blue;
+		text-decoration: none;
+	}
+
+	.main-heart {
+		margin: 6px 10px 10px 2px;
+	}
+
+	.main-compass {
+		margin: 6px 10px 10px 2px;
+	}
+
+	.main-ent {
+		margin: 8px 10px 10px 2px;
+		text-decoration: none;
+		color: black;
+	}
+
+	.main-exit {
+		margin: 8px 10px 10px 2px;
+		text-decoration: none;
+		color: black;
+	}
+
+	.main-exit:hover {
+		color: blue;
+		text-decoration: none;
+	}
+
+	.main-nick {
+		margin: 8px 10px 10px 2px;
+		text-decoration: none;
+		color: black;
+	}
+	.main-nick:hover {
+		color: blue;
+		text-decoration: none;
+	}
+}
+
+.avatar-image {
+	width: 40px;
+	height: 40px;
+  border: 1px solid #778899;
+  border-radius: 50%;
+  margin: 10px 10px 10px 2px;
+}
+
+.container {
+	font-size: 30px;
+	max-width: 1300px;
+}
+
+.search {
+	margin-top: 8px;
+}
+
+.logo {
+	font-size: 35px;
+	font-family: 'Poiret One';
+
+	.logo-inst {
+		text-decoration: none;
+		color: black
+	}
+
+	.logo-inst:hover {
+		text-decoration: none;
+		color: blue;
+	}
+}
+
+a {
+	text-decoration: none; 
+	color: black;
+}
+
+.logo-inst {
+	color: black;
+}
+
+.footer{
+  font-size: 12px;
+  padding-top: 30px;
+}
+
+.footer ul {
+  padding-left: 0;
+    li{
+      display: inline;
+      padding-right: 15px;
+      color: black;
+    }
+}
+
+.navbar {
+  background-color: "light-grey"  
+}
