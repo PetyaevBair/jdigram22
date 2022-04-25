@@ -138,8 +138,12 @@ class EditUser extends React.Component {
               onChange={this.handleImageChange}
             />
           </div>
-          <div>
-            <input type="submit" value="Редактировать" className="btn btn-primary" />
+          <div className="row form-edit">
+            <div className="col-3">
+            </div>
+            <div className="col-9">
+              <input type="submit" value="Редактировать" className="btn btn-primary" />
+            </div>
           </div>
         </form>
       </div>
