@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+
 class EditUser extends React.Component {
 
   constructor(props) {
@@ -42,8 +43,18 @@ class EditUser extends React.Component {
 
   handleImageChange(e) {
     // this.setState({ image: e.target.files[0] });\
-    this.setState({ image: e.target.files[0] });
-  }
+    this.setState({ image: e.target.files[0] }); 
+    
+    if (e.target.files && e.target.files[0]) {
+      var reader = new FileReader();
+      console.log("Файл принят")
+      reader.onload = function (e) {
+          $('#im-pr').attr('src', e.target.result)
+      };
+      reader.readAsDataURL(e.target.files[0]);
+      console.log("Что то не так")
+    };
+};
 
   handleSubmit = event => {
     event.preventDefault();
@@ -58,61 +69,69 @@ class EditUser extends React.Component {
     fetch(`/users/${this.props.user.id}`, {
       method: 'PATCH',
       body: formData
-    })   
+    })
+    .then((data) => console.log('data:', data))
     .catch(error=>console.log(error));
   }
 
   render () {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label>Имя:</label>
+        <form onSubmit={this.handleSubmit} encType="multipart/form-data" className="edit-form">
+          <div className="row form-edit">
+            <label className="col-3 form-label">Имя:</label>
             <input
+              className="col-9 form-field"
               type="text"
               name="user[name]"
               value={this.state.name}
               onChange={this.handleNameChange}
             />
           </div>
-          <div>
-            <label>Никнейм:</label>
+          <div className="row form-edit">
+            <label className="col-3 form-label">Никнейм:</label>
             <input
+              className="col-9 form-field"
               type="text"
               name="user[username]"
               value={this.state.username}
               onChange={this.handleUsernameChange}
             />
           </div>
-          <div>
-            <label>Почта:</label>
+          <div className="row form-edit">
+            <label className="col-3 form-label">Почта:</label>
             <input
+              className="col-9 form-field email-input"
               type="text"
               name="user[email]"
               value={this.state.email}
               onChange={this.handleEmailChange}
             />
           </div>
-          <div>
-            <label>Телефон:</label>
+          <div className="row form-edit">
+            <label className="col-3 form-label">Телефон:</label>
             <input
+              className="col-9 form-field"
               type="text"
               name="user[phone]"
               value={this.state.phone}
               onChange={this.handlePhoneChange}
             />
           </div>
-          <div>
-            <label>Био:</label>
+          <div className="row form-edit">
+            <label className="col-3 form-label">Био:</label>
             <textarea
+            className="col-9 form-field bio-field"
               name="user[bio]"
               value={this.state.bio}
               onChange={this.handleBioChange}
             ></textarea>
           </div>
-          <div>
-            <label>Фото:</label>
+          <img id="im-pr" src=""/>
+          <div className="row form-edit">
+            <label className="col-3 form-label">Фото:</label>
             <input
+              className="col-9 image-field"
               type="file"
               accept="image/*"
               name="user[image]"
@@ -120,7 +139,7 @@ class EditUser extends React.Component {
             />
           </div>
           <div>
-            <input type="submit" value="Редактировать" />
+            <input type="submit" value="Редактировать" className="btn btn-primary" />
           </div>
         </form>
       </div>

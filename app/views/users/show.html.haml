@@ -37,8 +37,8 @@
 
 .user-edit-comp
 .user-border
-  .user-post-images.row
+  .user-post-images
     - @user.posts.each do |post|
-      .post-image.col-4
+      .post-image
         = link_to post_path(post) do
           = image_tag post.image, class: "image"
