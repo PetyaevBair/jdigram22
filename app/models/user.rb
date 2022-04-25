@@ -48,4 +48,9 @@ class User < ApplicationRecord
   def image_presence
     errors.add(:image, "не может быть пустым") unless image.attached?
   end
+
+  def get_image_url
+    url_for(self.image)
+  end
+  
 end

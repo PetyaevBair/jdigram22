@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
 
   before_action :user_find, only: [:show, :edit, :update]
 
@@ -22,7 +24,7 @@ class UsersController < ApplicationController
   private
 
   def users_params
-    params.require(:user).permit(:bio, :name, :username, :phone, :email, :image)
+    params.permit(:id, :bio, :name, :username, :phone, :email, :image)
   end
 
   def user_find

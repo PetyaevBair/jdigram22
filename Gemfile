@@ -25,9 +25,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem 'bootstrap', '~> 4.1.1'
 gem 'haml-rails'
-gem "font-awesome-rails"
 gem "jquery-rails"
 gem "devise"
 gem "redis"
@@ -36,6 +34,7 @@ gem "aws-sdk-s3", require: false
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'searchkick'
 gem 'react-rails'
+gem 'active_model_serializers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
