@@ -140,7 +140,7 @@ class EditUser extends React.Component {
           </div>
           <div className="row form-edit">
             <div className="col-3">
-            </div>
+            </div> 
             <div className="col-9">
               <input type="submit" value="Редактировать" className="btn btn-primary" />
             </div>
