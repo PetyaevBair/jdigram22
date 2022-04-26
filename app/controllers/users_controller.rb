@@ -13,13 +13,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    
     if @user.update(users_params)
-      render json: "DATAAA"
-      # redirect_to user_path(current_user)
+      render json: user_url(current_user)#, alert: "success"
     else
       redirect_to edit_user_path(@user)
     end
-
+  
   end
 
   private

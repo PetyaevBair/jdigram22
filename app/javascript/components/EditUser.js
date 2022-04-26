@@ -64,13 +64,14 @@ class EditUser extends React.Component {
     formData.append('email', this.state.email);
     formData.append('phone', this.state.phone);
     formData.append('bio', this.state.bio);
-    formData.append('image', this.state.image);
-    
+    if (this.state.image.keys) formData.append('image', this.state.image);
     fetch(`/users/${this.props.user.id}`, {
       method: 'PATCH',
       body: formData
     })
-    .then((data) => console.log('data:', data))
+    .then((data) => {
+      window.location.replace(`/users/${this.props.user.id}`);
+    })
     .catch(error=>console.log(error));
   }
 
