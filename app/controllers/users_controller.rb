@@ -13,12 +13,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    
     if @user.update(users_params)
-      render json: user_url(current_user)#, alert: "success"
+      render json: {completed: 'Успешно', status: 200}
     else
-      redirect_to edit_user_path(@user)
+      @error_phone = @user.errors.full_messages.to_sentence
+      puts @error_phone.inspect
+      render json: {completed: 'Провал', error: @error_phone, status: 500}
+      # respond_to do |format|
+      #   format.json {render json: @error_phone}
+      # end
     end
+    #render json: {completed: 'Успешно', status: 200}
   
   end
 

@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 		if @post.save
 			redirect_to user_path(current_user)
     	else
-      		redirect_to new_post_path(@post)
+      		redirect_to new_post_path, alert: @post.errors.full_messages.to_sentence
 		end
 	end
 

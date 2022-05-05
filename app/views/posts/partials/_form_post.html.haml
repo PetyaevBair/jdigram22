@@ -1,4 +1,8 @@
 .post-create
+  -#- if @post.errors.any?
+  -#  %div#error-exp 
+  -#    %p Из-за этих ошибок не может быть выполнено сохранение поста:
+  -#    = @post.errors.full_messages.to_sentence
   = form_with model: @post do |form|
     %img#preview{:src => ""}/
     .form-group

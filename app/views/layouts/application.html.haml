@@ -22,14 +22,15 @@
             %i.fa.fa-heart
           - if user_signed_in?
             %div
-              - if current_user.image.present?
-                = image_tag current_user.image, class: "avatar-image"
+              = link_to user_path(current_user), class: "main-nick" do
+                = image_tag current_user.image, class: "avatar-image" if current_user.image.present?
+                = current_user.username
             = link_to "Диалоги", dialogs_path(user_id: current_user.id), class: "dialogs"
-            = link_to current_user.username, user_path(current_user), class: "main-nick"
             = link_to "Выйти", destroy_user_session_path, method: :delete, class: "main-exit"
           - else
             = link_to "Войти", new_user_session_path, class: "main-ent"
     %main.container{:style => "min-height: 500px;"}
+      = render "posts/partials/flash_error"
       = yield
     %footer.container.footer.foot-app
       %nav.navbar.d-flex

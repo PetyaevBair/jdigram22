@@ -45,12 +45,11 @@ class User < ApplicationRecord
 
   validate :image_presence
 
+  validates :phone, phone: true
+  validates :name, :username, presence: true
+
   def image_presence
     errors.add(:image, "не может быть пустым") unless image.attached?
-  end
-
-  def get_image_url
-    url_for(self.image)
   end
   
 end

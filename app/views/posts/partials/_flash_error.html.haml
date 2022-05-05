@@ -1,0 +1,6 @@
+- flash.each do |type, msg|
+	.alert.row.alert-warning.flash-message.alert-dismissible.fade.show{ role: "alert"}
+		.col-11
+			=msg
+		.col-1	
+			%button.close-flash.close{ type: "button", "data-bs-dismiss": "alert", "aria-label": "Close"} x 

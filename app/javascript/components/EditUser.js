@@ -1,5 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 class EditUser extends React.Component {
 
@@ -19,6 +22,10 @@ class EditUser extends React.Component {
     this.handlePhoneChange = this.handlePhoneChange.bind(this);
     this.handleBioChange = this.handleBioChange.bind(this);
     this.handleImageChange = this.handleImageChange.bind(this);
+  }
+  
+  notify = (data_error) => {
+    toast(data_error)
   }
 
   handleNameChange(e) {
@@ -69,10 +76,14 @@ class EditUser extends React.Component {
       method: 'PATCH',
       body: formData
     })
+    .then((response) => response.json())
     .then((data) => {
-      window.location.replace(`/users/${this.props.user.id}`);
+      if (data['error']) { 
+        this.notify(data['error'])
+      }
+      //window.location.replace(`/users/${this.props.user.id}`);
     })
-    .catch(error=>console.log(error));
+    .catch((error) => console.log(error));
   }
 
   render () {
@@ -144,6 +155,7 @@ class EditUser extends React.Component {
             </div> 
             <div className="col-9">
               <input type="submit" value="Редактировать" className="btn btn-primary" />
+              <ToastContainer />
             </div>
           </div>
         </form>

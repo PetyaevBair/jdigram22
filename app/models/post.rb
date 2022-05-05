@@ -17,12 +17,12 @@ class Post < ApplicationRecord
   has_one_attached :image
 
   validates :description, presence: true
-
+  validates :description, length: { minimum: 10 }
   validate :image_presence
 
   private
 
   def image_presence
-  	errors.add(:image, "не может быть пустым") unless image.attached?
+  	errors.add(:image, "can't be blank") unless image.attached?
   end
 end
