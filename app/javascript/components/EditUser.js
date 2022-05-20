@@ -54,14 +54,12 @@ class EditUser extends React.Component {
     
     if (e.target.files && e.target.files[0]) {
       var reader = new FileReader();
-      console.log("Файл принят")
       reader.onload = function (e) {
           $('#im-pr').attr('src', e.target.result)
       };
       reader.readAsDataURL(e.target.files[0]);
-      console.log("Что то не так")
     };
-};
+  };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -71,7 +69,10 @@ class EditUser extends React.Component {
     formData.append('email', this.state.email);
     formData.append('phone', this.state.phone);
     formData.append('bio', this.state.bio);
-    if (this.state.image.keys) formData.append('image', this.state.image);
+    console.log(this.state.image);
+    console.log(this.state.image.name);
+    console.log('this.state.image.keys:', Object.keys(this.state.image).length);
+    if (this.state.image.name) formData.append('image', this.state.image);
     fetch(`/users/${this.props.user.id}`, {
       method: 'PATCH',
       body: formData

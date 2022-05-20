@@ -1,1 +1,2 @@
+console.log('here')
 $("#comment_#{params[:id]}").replaceWith("#{j render partial: "/comments/edit", locals: { post: @post, comment: @comment }}");

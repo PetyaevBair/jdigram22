@@ -43,10 +43,6 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :friends, through: :friendships
 
-  validate :image_presence
-
-  validates :phone, phone: true
-  validates :name, :username, presence: true
 
   def image_presence
     errors.add(:image, "не может быть пустым") unless image.attached?

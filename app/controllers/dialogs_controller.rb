@@ -1,11 +1,12 @@
 class DialogsController < ApplicationController
   def index
-  	@dialogs_users = DialogsUser.where(user_id: params[:user_id])
+  	@dialogs_users = DialogsUser.includes([:dialog]).where(user_id: params[:user_id])
   end
 
   def show
   	@dialog = Dialog.find(params[:id])
   end
+  
   def create
   	dialogs_users = DialogsUser.where(user_id: current_user.id)
   	dialogs_users.each do |dialogs_user|

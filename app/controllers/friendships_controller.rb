@@ -27,8 +27,8 @@ class FriendshipsController < ApplicationController
 
   	private
 
-  	def friend_params
-  		params.permit[:id]  		
-  	end
+	  	def friend_params
+	  		params.permit[:id]  		
+	  	end
 
 end

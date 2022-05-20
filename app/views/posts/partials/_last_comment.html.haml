@@ -1,7 +1,6 @@
 .comment-blok{:id => "comment_#{comment.id}"}
   .comment-text
-    = link_to comment.user.username, user_path(comment.user), class: "link-user"
-    \: #{comment.text}
+    #{comment.text}
   .comment-edit
     - if user_signed_in?
       - if current_user == comment.user

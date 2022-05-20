@@ -2,11 +2,10 @@ class PostsController < ApplicationController
 	before_action :post_find, only: [:show, :update]
 
 	def index
-		@posts = Post.includes(:likes).order(created_at: :desc)
+		@posts = Post.includes([:comments, image_attachment: :blob, user: [ image_attachment: :blob ]]).order(created_at: :desc)
 	end
 
-	def show
-    end
+	def show; end
 
 	def new
 		@post = current_user.posts.new
@@ -37,12 +36,12 @@ class PostsController < ApplicationController
 
 	private
 
-	def post_params
-		params.require(:post).permit(:description, :image)
-	end
+		def post_params
+			params.require(:post).permit(:description, :image)
+		end
 
-	def post_find
-		@post = Post.find(params[:id])
-	end
+		def post_find
+			@post = Post.find(params[:id])
+		end
 
 end

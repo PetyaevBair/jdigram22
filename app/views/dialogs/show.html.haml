@@ -1,5 +1,5 @@
-.dialog
-  - if user_signed_in?
+- if user_signed_in?
+  .dialog
     .user-part
       %p Участники:
       - @dialog.users.each do |user|
@@ -9,4 +9,4 @@
         = render partial: "/dialogs/partials/message", locals: {message: message}
     .send-message
       = render partial: "/messages/partials/new", locals: {message: @dialog.messages.new, dialog: @dialog}
-  - else
+- else
