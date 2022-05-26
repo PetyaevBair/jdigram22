@@ -22,7 +22,7 @@ class CreateComment extends React.Component {
 	handleCommentSubmit = event => {
 		event.preventDefault();
 		const comment = { text: this.state.text };
-		fetch(`/posts/${this.state.commentableId}/comments.js`, {
+		fetch(`/posts/${this.state.commentableId}/comments`, {
 			method: "POST",
 			body: JSON.stringify(comment),
 			dataType : "script",

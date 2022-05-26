@@ -14,6 +14,7 @@
 #  username               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  stripe_id              :string
 #
 # Indexes
 #
@@ -38,7 +39,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  
+  has_one :subscription
   has_one_attached :image
   has_many :friendships
   has_many :friends, through: :friendships

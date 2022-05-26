@@ -1,12 +1,13 @@
 - if user_signed_in?
-  .dialog
-    .user-part
-      %p Участники:
-      - @dialog.users.each do |user|
-        %p= link_to user.username, user_path(user), class: "list-user"
-    #dialog_messages.chat{"data-channel-subscribe" => "dialog", "data-dialog-id" => "#{@dialog.id}"}
-      - @dialog.messages.each do |message|
-        = render partial: "/dialogs/partials/message", locals: {message: message}
-    .send-message
-      = render partial: "/messages/partials/new", locals: {message: @dialog.messages.new, dialog: @dialog}
+  / .dialog
+  /   .user-part
+  /     %p Участники:
+  /     - @dialog.users.each do |user|
+  /       %p= link_to user.username, user_path(user), class: "list-user"
+  /   #dialog_messages.chat{"data-channel-subscribe" => "dialog", "data-dialog-id" => "#{@dialog.id}"}
+  /     - @dialog.messages.each do |message|
+  /       = render partial: "/dialogs/partials/message", locals: {message: message}
+  /   .send-message
+  /     = render partial: "/messages/partials/new", locals: {message: @dialog.messages.new, dialog: @dialog}
+  = react_component("Dialogs", id: @dialog.id, users: @dialog.users, messages: @dialog.messages, current_user: current_user, dialog: @dialog, token: form_authenticity_token) 
 - else
