@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 gem 'haml-rails'
 gem "devise"
@@ -34,12 +34,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'searchkick'
 gem 'react-rails'
 gem 'phonelib'
-gem 'bullet'
 gem 'dotenv-rails'
 gem 'stripe'
-gem 'carrierwave'
 gem 'mini_magick'
-gem 'cropper_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

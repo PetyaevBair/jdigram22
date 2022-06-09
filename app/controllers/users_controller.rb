@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :user_find, only: [:edit, :update]
 
   def show
-    @user = User.includes(image_attachment: :blob).find(params[:id])
+    @user = User.includes([:posts, image_attachment: :blob]).find(params[:id])
     @subscribes = Friendship.where(friend_id: @user.id).count
     @subscriptions = Friendship.where(user_id: @user.id).count
   end

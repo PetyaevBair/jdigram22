@@ -41,4 +41,4 @@
     - @user.posts.each do |post|
       .post-image
         = link_to post_path(post) do
-          = image_tag post.image.large.url, class: "image"
+          = image_tag post.crop, class: "image"
