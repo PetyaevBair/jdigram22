@@ -8,7 +8,8 @@
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'https://checkout.stripe.com/checkout.js'
+    %link{rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.css"}
+    %script{src: "https://js.stripe.com/v3/"}
   %body
     %nav.navbar.bg-light.d-flex
       .container
@@ -17,9 +18,9 @@
         .search
           = render 'search/form'
         .user-section
-          %a.main-compass
+          = link_to portal_path, class: "main-compass" do
             %i.fa.fa-compass
-          %a.main-heart
+          = link_to purchases_path, class: "main-heart" do
             %i.fa.fa-heart
           - if user_signed_in?
             = link_to user_path(current_user), class: "main-nick" do

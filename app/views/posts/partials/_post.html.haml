@@ -12,7 +12,7 @@
           .link-post-edit.fa.fa-edit.edit-icon
         = link_to post_path(post), method: :delete, remote: true do
           .link-post-delete.fa.fa-trash.del-icon
-  = image_tag post.image, class: "post-image"
+  = image_tag post.image.medium.url, class: "post-image"
   .likes
     - if user_signed_in?
       - like = current_user.likes.find_by(likeable_type: "Post", likeable_id: post.id)

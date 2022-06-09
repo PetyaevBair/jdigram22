@@ -35,6 +35,11 @@ gem 'searchkick'
 gem 'react-rails'
 gem 'phonelib'
 gem 'bullet'
+gem 'dotenv-rails'
+gem 'stripe'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'cropper_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

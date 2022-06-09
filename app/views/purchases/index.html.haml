@@ -1,0 +1,21 @@
+%p.blockquote
+  Вы можете получить доступ к расширенным возможностям JDIGram всего лишь за один доллар в месяц.
+%button{"data-subscribe": ENV["SUBSCRIPTION_ID"], href: "#", class: "btn btn-primary"}
+  Купить
+
+:javascript
+  document
+    .querySelector('[data-subscribe]')
+    .addEventListener('click', (event) => {
+      fetch(`/stripe/new?plan=${event.currentTarget.dataset.subscribe}`)
+      .then(response => response.json())
+      .then((json) => {
+        var stripe = Stripe(`#{ENV['STRIPE_PUBLISHABLE_KEY']}`);
+        stripe.redirectToCheckout({
+          sessionId: json.session_id
+        })
+      .then(function (result) {
+      });
+    });
+    event.returnValue = false;
+  });

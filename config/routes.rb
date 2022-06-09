@@ -12,4 +12,11 @@ Rails.application.routes.draw do
   end
   post "/likes/:likeable_type/:likeable_id", to: "likes#create", as: :like
   get "search", to: "search#search"
+
+  resources :subscriptions
+  resources :stripe
+  resources :purchases, only: [:index]
+  post 'stripe/webhook', to: "stripe#webhook"
+  get 'purchases/portal', to: "purchases#stripe_portal", as: :portal
+  post '/portal', to: "stripe#portal"
 end

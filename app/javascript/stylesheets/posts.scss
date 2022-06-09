@@ -130,14 +130,22 @@
 		text-align: center;
 	}
 
-	#preview {
-		width: 200px;
+	#image {
+		width: 300px;
 		margin: 10px auto auto 40%;
-		}
+	}
 
 	input[type='text']{
 		width: 480px;
- }
+ 	}
+ 	
+ 	.cropp-canv {
+ 		width: 465px;
+ 		height: 290px;
+ 		.cropper-canvas	{
+ 			autoCropArea: 1;
+ 		}
+ 	}
 }
 
 .like_on {
@@ -183,4 +191,9 @@ p.comment-label {
 a.like {
 	width: 34px;
 	height: 30px;
+}
+
+canvas {
+	height: auto;
+	width: 466px;
 }
