@@ -19,11 +19,22 @@ class Post < ApplicationRecord
   has_many :likes, as: :likeable, dependent: :destroy
   has_one_attached :image
 
+  before_save :convert_to_int
+
   validates :description, presence: true
   validates :description, length: { minimum: 10 }
 
   def crop
-    image.variant(crop: "#{logo_crop_w}x#{logo_crop_h}+#{logo_crop_x}+#{logo_crop_y}")
+    self.image.variant(crop: "#{self.logo_crop_w}x#{self.logo_crop_h}+#{self.logo_crop_x}+#{self.logo_crop_y}")
   end
+
+  private
+
+    def convert_to_int
+      self.logo_crop_x.to_i
+      self.logo_crop_y.to_i
+      self.logo_crop_w.to_i
+      self.logo_crop_h.to_i
+    end
 
 end

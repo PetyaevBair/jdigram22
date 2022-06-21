@@ -128,6 +128,7 @@
 	}
 	.btn-post-create {
 		text-align: center;
+		margin-top: 20px;
 	}
 
 	#image {
@@ -138,6 +139,15 @@
 	input[type='text']{
 		width: 480px;
  	}
+
+ 	.container {
+ 		width: 465px;
+ 		height: 290px;
+ 	}
+
+ 	#image {
+ 		max-width: 100%;
+ 	}
  	
  	.cropp-canv {
  		width: 465px;
@@ -145,6 +155,11 @@
  		.cropper-canvas	{
  			autoCropArea: 1;
  		}
+ 	}
+ 	
+ 	.cropper-crop {
+ 		width: 465px;
+ 		height: 290px;
  	}
 }
 

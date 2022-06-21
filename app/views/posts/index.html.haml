@@ -1,15 +1,6 @@
-.posts
-  - @posts.each do |post|
-    = render partial: "/posts/partials/post", locals: { post: post }
-    / - params_object = { post: post, user: post.user, url: url_for(post.image), comments: post.comments, user_url: post.user.image.present? ? url_for(post.user.image) : '', count_likes: post.likes.count }
-    / - if user_signed_in?
-    /   - csrf_token = form_authenticity_token
-    /   - like = current_user.likes.find_by(likeable_type: "Post", likeable_id: post.id)
-    /   - params_object[:like] = like.present? ? like : ''
-    /   - params_object[:current_user] = current_user
-    /   - params_object[:token] = csrf_token
-    / - else
-    /   - params_object[:like] = ''
-    /   - params_object[:current_user] = ''
+.posts{ "data-controller": "infinite-scroll", "data-action": "scroll@window->infinite-scroll#scroll"}
+  %div{ "data-target": "infinite-scroll.entries"}
+    = render partial: "/posts/partials/posts_all"
 
-    / = react_component("Post", params_object) 
+  %div{ "data-target": "infinite-scroll.pagination", type: "hidden"}  
+    = paginate @posts

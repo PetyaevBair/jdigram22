@@ -5,11 +5,7 @@
       = form.text_field :description
     .form-group
       = form.file_field :image, id: :business_logo_image
-      = form.label :image, class: "upload" do
-        %i.material-icons
-          file_upload
-        %span
-          Choose image
+      = form.label "Изображение", class: "upload"
 
     - %w[x y w h].each do |attribute|
       = form.hidden_field "logo_crop_#{attribute}", id:"logo_crop_#{attribute}"
@@ -24,9 +20,8 @@
               %span{"aria-hidden":"true"}
                 &times;
           %div.modal-body
-            / %div
+            / %div.container
             /   %img{id: "image", width: "100%", src: "", alt: "Logo"}
-            / %div#result
             %div.cropp-canv
               %canvas#canvas
                 Your browser does not support the HTML5 canvas element.

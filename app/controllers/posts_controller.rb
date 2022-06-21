@@ -2,7 +2,13 @@ class PostsController < ApplicationController
 	before_action :post_find, only: [:show, :update]
 
 	def index
-		@posts = Post.includes([:comments, image_attachment: :blob, user: [ image_attachment: :blob ]]).order(created_at: :desc)
+		@posts = Post.includes([:comments, image_attachment: :blob,	user: [image_attachment: :blob]]).order(created_at: :desc).page(params[:page]).per(5)
+		respond_to do |format|
+			format.html
+			format.json {
+				render json: { entries: render_to_string(partial: "posts/partials/posts_all", formats: [:html]), pagination: view_context.paginate(@posts)}
+			}
+		end
 	end
 
 	def show; end
@@ -12,18 +18,14 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = current_user.posts.new(description: params[:post][:description], image: params[:post][:image])
-		@post.logo_crop_x = params[:post][:logo_crop_x].to_i
-		@post.logo_crop_y = params[:post][:logo_crop_y].to_i
-		@post.logo_crop_w = params[:post][:logo_crop_w].to_i
-		@post.logo_crop_h = params[:post][:logo_crop_h].to_i
+		@post = current_user.posts.new(post_params)
 		if current_user.subscription.blank?	and current_user.posts.count >= 40
 			redirect_to new_post_path, alert: "В бесплатной версии приложения вы не можете выложить больше 4-ёх постов"
 		else
 			if @post.save
 				redirect_to user_path(current_user)
-	    else
-	    	redirect_to new_post_path, alert: @post.errors.full_messages.to_sentence
+	    	else
+	    		redirect_to new_post_path, alert: @post.errors.full_messages.to_sentence
 			end
 		end
 	end
