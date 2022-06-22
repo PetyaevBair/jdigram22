@@ -31,10 +31,10 @@ class Post < ApplicationRecord
   private
 
     def convert_to_int
-      logo_crop_x = logo_crop_x.to_i
-      logo_crop_y = logo_crop_y.to_i
-      logo_crop_w = logo_crop_w.to_i
-      logo_crop_h = logo_crop_h.to_i
+      self.logo_crop_x = self.logo_crop_x.to_i
+      self.logo_crop_y = self.logo_crop_y.to_i
+      self.logo_crop_w = self.logo_crop_w.to_i
+      self.logo_crop_h = self.logo_crop_h.to_i
     end
 
 end
