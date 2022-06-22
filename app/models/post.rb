@@ -25,16 +25,16 @@ class Post < ApplicationRecord
   validates :description, length: { minimum: 10 }
 
   def crop
-    self.image.variant(crop: "#{self.logo_crop_w}x#{self.logo_crop_h}+#{self.logo_crop_x}+#{self.logo_crop_y}")
+    image.variant(crop: "#{self.logo_crop_w}x#{self.logo_crop_h}+#{self.logo_crop_x}+#{self.logo_crop_y}")
   end
 
   private
 
     def convert_to_int
-      self.logo_crop_x.to_i
-      self.logo_crop_y.to_i
-      self.logo_crop_w.to_i
-      self.logo_crop_h.to_i
+      logo_crop_x = logo_crop_x.to_i
+      logo_crop_y = logo_crop_y.to_i
+      logo_crop_w = logo_crop_w.to_i
+      logo_crop_h = logo_crop_h.to_i
     end
 
 end
