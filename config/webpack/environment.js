@@ -11,4 +11,19 @@ environment.plugins.prepend('Provide',
   })
 )
 
+environment.loaders.insert('sass', {
+    test: /\.scss$/,
+    use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
+    ]   
+});
+
 module.exports = environment

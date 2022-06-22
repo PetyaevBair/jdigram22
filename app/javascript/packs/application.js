@@ -27,7 +27,6 @@ global.Masonry = Masonry*/
 require("./crop-render")
 //require("./infinite_scrolling")
 
-
 import Cropper from "cropperjs"
 global.Cropper = Cropper
 import "jquery-cropper"
